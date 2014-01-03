@@ -1,6 +1,8 @@
 <?php
 /**
- * The template for display "No posts found" message
+ * The template part for displaying a message that posts cannot be found.
+ *
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package Lattice
  * @since	1.0
