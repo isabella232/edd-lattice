@@ -14,7 +14,7 @@
 
 	<section class="single-title-block">
 		<div class="inside">
-			<h1 class="single-title">Oops! That page can&rsquo;t be found.</h1>
+			<h1 class="single-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'lattice' ); ?></h1>
 		</div><!-- /.inside -->
 	</section><!-- /.single-download-title-block -->
 
