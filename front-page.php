@@ -68,7 +68,7 @@
 			<?php if ( $downloads->post_count >= 9 ) { ?>
 				<div class="view-more-button-div">
 					<p class="view-more-button clearfix"><a href="<?php echo get_post_type_archive_link( 'download' ); ?>"><?php _e( 'View More', 'lattice' ); ?></a></p>
-				</div>
+				</div><!-- /.view-more-button-div -->
 			<?php } // end if ?>
 		</section><!-- /.downloads-container -->
 
