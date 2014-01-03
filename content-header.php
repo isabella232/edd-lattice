@@ -19,6 +19,6 @@
 			<p class="categories"><span class="category-links"><?php echo get_the_category_list( ' ' ); ?></span></p>
 		<?php endif; ?>
 	</div><!-- /.inside -->
-</section><!-- /.single-download-title-block -->
+</section><!-- /.single-title-block -->
 
 <?php rewind_posts(); ?>
