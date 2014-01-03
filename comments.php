@@ -1,8 +1,11 @@
 <?php
 /**
- * The template for displaying comments.
+ * The template for displaying Comments.
  *
- * @link http://codex.wordpress.org/Template_Hierarchy
+ * The area of the page that contains both current comments
+ * and the comment form. The actual display of comments is
+ * handled by a callback to lattice_comment() which is
+ * located in the functions.php file.
  *
  * @package Lattice
  * @since	1.0
