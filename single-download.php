@@ -68,15 +68,15 @@
 
 					<?php do_action( 'lattice_download_end' ); ?>
 
-				<?php } // end while ?>
-
-				<?php do_action( 'lattice_download_after' ); ?>
-
 				<?php do_action( 'lattice_comments_before' ); ?>
 
 				<?php comments_template(); ?>
 
 				<?php do_action( 'lattice_comments_after' ); ?>
+
+				<?php } // end while ?>
+
+				<?php do_action( 'lattice_download_after' ); ?>
 			</section><!-- /.content -->
 
 			<aside class="sidebar">
