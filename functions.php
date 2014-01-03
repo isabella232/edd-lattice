@@ -106,6 +106,16 @@ add_action( 'after_setup_theme', 'lattice_theme_setup' );
  * 2. Includes
  * ----------------------------------------------------------- */
 
+/**
+ * Load EDD Theme Updater Class
+ *
+ * @since	1.0
+ * @version	1.0
+ */
+if ( ! class_exists( 'EDD_SL_Theme_Updater' ) ) {
+	require_once( dirname( __FILE__ ) . '/inc/class-edd-sl-theme-updater.php' );
+} // end if
+
 /* ----------------------------------------------------------- *
  * 3. Stylesheets and JavaScript Files
  * ----------------------------------------------------------- */
@@ -127,7 +137,7 @@ function lattice_register_theme_scripts() {
 
 	$edd_fonts_css = <<<CSS
 		@font-face {
- 			font-family: 'padlock';
+			font-family: 'padlock';
 			src: url('$path/fonts/padlock.eot?64116112');
 			src: url('$path/fonts/padlock.eot?64116112#iefix') format('embedded-opentype'), url('$path/fonts/padlock.svg?64116112#padlock') format('svg');
 			font-weight: normal;
@@ -850,3 +860,186 @@ function lattice_customize_preview_js() {
 	wp_enqueue_script( 'lattice-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), LATTICE_THEME_VERSION, true );
 } // end lattice_customize_preview_js
 add_action( 'customize_preview_init', 'lattice_customize_preview_js' );
+
+/* ----------------------------------------------------------- *
+ * 10. Software Licensing Integration
+ * ----------------------------------------------------------- */
+
+/**
+ * Initialise the updater
+ *
+ * @since	1.0
+ * @version	1.0
+ */
+function lattice_theme_updater() {
+	$license = trim( get_option( 'lattice_theme_license_keys' ) );
+
+	$edd_updater = new EDD_SL_Theme_Updater( array(
+				'remote_api_url' => 'https://easydigitaldownloads.com',
+				'version'        => LATTICE_THEME_VERSION,
+				'license'        => $license,
+				'item_name'      => 'Lattice',
+				'author'         => 'Sunny Ratilal'
+		)
+	);
+}
+add_action( 'admin_init', 'lattice_theme_updater' );
+
+/**
+ * Add menu item to input license key
+ *
+ * @since	1.0
+ * @version	1.0
+ */
+function lattice_add_menu_page() {
+	add_theme_page( __( 'Theme License', 'lattice' ), __( 'Theme License', 'lattice' ), 'manage_options', 'lattice-license', 'lattice_license_page' );
+}
+add_action( 'admin_menu', 'lattice_add_menu_page' );
+
+/**
+ * Render the license page
+ *
+ * @since	1.0
+ * @version	1.0
+ */
+function lattice_license_page() {
+	$license 	= get_option( 'lattice_license_key' );
+	$status 	= get_option( 'lattice_license_key_status' );
+	?>
+	<div class="wrap">
+		<h2><?php _e( 'Lattice Theme License Options', 'lattice' ); ?></h2>
+		<form method="post" action="options.php">
+			<?php settings_fields( 'lattice_license' ); ?>
+
+			<table class="form-table">
+				<tbody>
+					<tr valign="top">
+						<th scope="row" valign="top">
+							<?php _e( 'License Key', 'lattice' ); ?>
+						</th>
+						<td>
+							<input id="lattice_license_key" name="lattice_license_key" type="text" class="regular-text" value="<?php esc_attr( $license ); ?>" />
+							<label class="description" for="lattice_license_key"><?php _e( 'Enter your license key', 'lattice' ); ?></label>
+						</td>
+					</tr>
+					<?php if ( false !== $license ) { ?>
+						<tr valign="top">
+							<th scope="row" valign="top">
+								<?php _e( 'Activate License', 'lattice' ); ?>
+							</th>
+							<td>
+								<?php if ( $status !== false && $status == 'valid' ) { ?>
+									<span style="color:green;"><?php _e('active'); ?></span>
+									<?php wp_nonce_field( 'lattice_nonce', 'lattice_nonce' ); ?>
+									<input type="submit" class="button-secondary" name="edd_theme_license_deactivate" value="<?php _e( 'Deactivate License', 'lattice' ); ?>"/>
+								<?php } else {
+									wp_nonce_field( 'lattice_nonce', 'lattice_nonce' ); ?>
+									<input type="submit" class="button-secondary" name="edd_theme_license_activate" value="<?php _e( 'Activate License', 'lattice' ); ?>"/>
+								<?php } // end if ?>
+							</td>
+						</tr>
+					<?php } // end if ?>
+				</tbody>
+			</table><!-- /.form-table -->
+			<?php submit_button(); ?>
+		</form>
+	<?php
+}
+
+/**
+ * Register setting for theme license page
+ *
+ * @since	1.0
+ * @version	1.0
+ */
+function lattice_register_settings() {
+	// creates our settings in the options table
+	register_setting( 'lattice_license', 'lattice_license_key', 'lattice_sanitize_license' );
+}
+add_action('admin_init', 'lattice_register_settings');
+
+/**
+ * Gets rid of the local license status option when adding a new one
+ *
+ * @param   string $new New license key
+ * @return  string      New license key
+ * @since	1.0
+ * @version	1.0
+ */
+function lattice_sanitize_license( $new ) {
+	$old = get_option( 'lattice_license_key' );
+
+	if ( $old && $old != $new ) {
+		delete_option( 'lattice_license_key_status' ); // new license has been entered, so must reactivate
+	} // end if
+
+	return $new;
+}
+
+/**
+ * Activate the license key based on the input
+ *
+ * @since	1.0
+ * @version	1.0
+ */
+function lattice_activate_license() {
+	if ( isset( $_POST['edd_theme_license_activate'] ) ) {
+	 	if ( ! check_admin_referer( 'lattice_nonce', 'lattice_nonce' ) ) {
+			return;
+	 	} // end if
+
+		$license = trim( get_option( 'lattice_license_key' ) );
+
+		$api_params = array(
+			'edd_action' => 'activate_license',
+			'license'    => $license,
+			'item_name'  => urlencode( 'Lattice' )
+		);
+
+		$response = wp_remote_get( add_query_arg( $api_params, 'https://easydigitaldownloads.com' ), array( 'timeout' => 15, 'sslverify' => false ) );
+
+		if ( is_wp_error( $response ) ) {
+			return false;
+		} // end if
+
+		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
+
+		update_option( 'lattice_license_key_status', $license_data->license );
+	}
+}
+add_action( 'admin_init', 'lattice_activate_license' );
+
+/**
+ * Activate the license and reduce the site count on the remote site
+ *
+ * @since	1.0
+ * @version	1.0
+ */
+function lattice_deactivate_license() {
+	if ( isset( $_POST['edd_theme_license_deactivate'] ) ) {
+		if( ! check_admin_referer( 'lattice_nonce', 'lattice_nonce' ) ) {
+			return;
+		} // end if
+
+		$license = trim( get_option( 'lattice_license_key' ) );
+
+		$api_params = array(
+			'edd_action' => 'deactivate_license',
+			'license'    => $license,
+			'item_name'  => urlencode( 'Lattice' )
+		);
+
+		$response = wp_remote_get( add_query_arg( $api_params, 'https://easydigitaldownloads.com' ), array( 'timeout' => 15, 'sslverify' => false ) );
+
+		if ( is_wp_error( $response ) ) {
+			return false;
+		} // end if
+
+		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
+
+		if ( $license_data->license == 'deactivated' ) {
+			delete_option( 'lattice_license_key_status' );
+		}
+	}
+}
+add_action( 'admin_init', 'lattice_deactivate_license' );
