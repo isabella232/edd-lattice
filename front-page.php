@@ -29,14 +29,29 @@
 				$downloads = new WP_Query( $args );
 				?>
 
-				<?php if ( $downloads->have_posts() ) : $c = 0; while ( $downloads->have_posts() ) : $downloads->the_post(); $c++ ?>
-					<?php if ( 0 == $c % 3 ) $download_clear = 'download-clear clearfix'; else $download_clear = ''; ?>
+				<?php
+				if ( $downloads->have_posts() ) {
+					$c = 0;
+					// Start the Loop.
+					while ( $downloads->have_posts() ) { $downloads->the_post(); $c++;
+				?>
+					<?php
+					if ( 0 == $c % 3 ) {
+						$download_clear = 'download-clear clearfix';
+					} else {
+						$download_clear = '';
+					} // end if
+					?>
 					<article <?php post_class( $download_clear ); ?> id="post-<?php the_ID(); ?>">
 						<div class="download-image">
-							<?php the_post_thumbnail( 'lattice-download-grid' ); ?>
+							<?php
+							if ( function_exists( 'has_post_thumbnail' ) && has_post_thumbnail( get_the_ID() ) ) {
+								the_post_thumbnail( 'lattice-download-grid' );
+							} // end if
+							?>
 							<div class="overlay">
 								<?php lattice_purchase_link(); ?>
-								<a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php _e( 'More Info', 'lattice' ); ?></a>
+								<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( __( 'Permanent Link to %s', 'lattice' ), the_title_attribute( 'echo=0' ) ); ?>"><?php _e( 'More Info', 'lattice' ); ?></a>
 							</div><!-- /.overlay -->
 						</div><!-- /.entry-image -->
 
@@ -44,13 +59,17 @@
 							<h3><?php the_title(); ?></h3>
 						</div><!-- /.download-title -->
 					</article><!-- /.download -->
-				<?php endwhile; endif; ?>
+				<?php
+					} // end while
+				} // end if
+				?>
 			</div><!-- /.inside -->
-			<?php if ( $downloads->post_count >= 9 ) : ?>
+
+			<?php if ( $downloads->post_count >= 9 ) { ?>
 				<div class="view-more-button-div">
 					<p class="view-more-button clearfix"><a href="<?php echo get_post_type_archive_link( 'download' ); ?>"><?php _e( 'View More', 'lattice' ); ?></a></p>
 				</div>
-			<?php endif; ?>
+			<?php } // end if ?>
 		</section><!-- /.downloads-container -->
 
 		<section class="testimonials-container clearfix">
