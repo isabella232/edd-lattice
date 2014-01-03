@@ -13,8 +13,8 @@
 
 	<section class="intro clearfix">
 		<div class="inside">
-			<h1 class="page-title">Welcome to our Store</h1>
-		</div>
+			<h1 class="page-title"><?php _e( 'Welcome to our Store', 'lattice' ); ?></h1>
+		</div><!-- /.inside -->
 	</section><!-- /.intro -->
 
 	<section class="main clearfix">
