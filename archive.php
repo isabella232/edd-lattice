@@ -31,7 +31,7 @@
 				} elseif ( is_year() ) {
 					printf( __( 'Yearly Archives: %s', 'lattice' ), get_the_date( _x( 'Y', 'yearly archives date format', 'lattice' ) ) );
 				} else {
-					_e( 'Archives', 'lattice' )
+					_e( 'Archives', 'lattice' );
 				} // end if
 				?>
 			</h1>
