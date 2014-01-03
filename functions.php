@@ -481,10 +481,11 @@ function lattice_comments_title() {
 	if ( 'download' == get_post_type( $post->ID ) && class_exists( 'EDD_Reviews' ) ) {
 		if ( 0 < $comments_number ) {
 			printf(
-				_n(
+				_nx(
 					'One Review',
 					'%1$s Reviews',
 					get_comments_number(),
+					'comments title',
 					'lattice'
 				),
 				number_format_i18n( get_comments_number() )
