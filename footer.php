@@ -9,7 +9,7 @@
  * @version	1.0
  */
 ?>
-	<footer id="footer">
+	<footer id="footer" role="contentinfo">
 		<div class="inside">
 			<?php lattice_social_icons(); ?>
 			<p><?php printf( __( '&copy; %1$s %2$s. Powered by %3$sWordPress%4$s.', 'lattice' ), date( 'Y' ), get_bloginfo( 'name', 'display' ), '<a href="http://wordpress.org">', '</a>' ); ?></p>
