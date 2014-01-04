@@ -1006,6 +1006,17 @@ span > object {
 	color: #262626 !important;
 }
 
+.main .downloads-container .inside .type-download .download-image .overlay .edd-cart-ajax-alert {
+	position: absolute;
+	width: 250px;
+	display: block;
+	top: 155px;
+}
+
+.main .downloads-container .inside .type-download .download-image .overlay .edd-cart-ajax-alert .edd-cart-added-alert {
+	color: #fff;
+}
+
 .main .downloads-container .inside .type-download .download-title {
 	margin: 15px 0 0;
 	border-bottom: 2px solid #ddd;
