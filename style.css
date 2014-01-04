@@ -2437,12 +2437,13 @@ a.edd-add-to-cart .edd-loading {
 	color: #fff;
 }
 
-a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
-	-webkit-transition: .1s  opacity !important;
-	-moz-transition: .1s  opacity !important;
-	-ms-transition: .1s  opacity !important;
-	-o-transition: .1s opacity !important;
-	transition: .1s  opacity !important
+a.edd-add-to-cart .edd-add-to-cart-label,
+a.edd-add-to-cart .edd-loading {
+	-webkit-transition: .1s opacity;
+	-moz-transition: .1s opacity;
+	-ms-transition: .1s opacity;
+	-o-transition: .1s opacity;
+	transition: .1s opacity
 }
 
 .edd-add-to-cart[data-edd-loading] .edd-add-to-cart-label {
