@@ -2788,7 +2788,11 @@ p.edd_error {
 		width: 85%;
 	}
 
-	.edd_downloads_list.edd_download_columns_3 .edd_download {
+	.edd_downloads_list.edd_download_columns_2 .edd_download,
+	.edd_downloads_list.edd_download_columns_3 .edd_download,
+	.edd_downloads_list.edd_download_columns_4 .edd_download,
+	.edd_downloads_list.edd_download_columns_5 .edd_download,
+	.edd_downloads_list.edd_download_columns_6 .edd_download {
 		width: 100% !important;
 		float: none !important;
 		margin-bottom: 25px;
