@@ -1885,38 +1885,26 @@ span > object {
 	width: 332px !important;
 }
 
-.edd_downloads_list.edd_download_columns_2 .edd_download:nth-child(2n+2) {
-	margin-right: 0;
-}
-
 .edd_downloads_list.edd_download_columns_3 .edd_download {
 	width: 216px !important;
 }
 
-.edd_downloads_list.edd_download_columns_3 .edd_download:nth-child(3n+3) {
-	margin-right: 0;
-}
-
 .edd_downloads_list.edd_download_columns_4 .edd_download {
-	width: 216px !important;
-}
-
-.edd_downloads_list.edd_download_columns_4 .edd_download:nth-child(4n+4) {
-	margin-right: 0;
+	width: 158px !important;
 }
 
 .edd_downloads_list.edd_download_columns_5 .edd_download {
-	width: 216px !important;
-}
-
-.edd_downloads_list.edd_download_columns_5 .edd_download:nth-child(5n+5) {
-	margin-right: 0;
+	width: 124px !important;
 }
 
 .edd_downloads_list.edd_download_columns_6 .edd_download {
-	width: 216px !important;
+	width: 100px !important;
 }
 
+.edd_downloads_list.edd_download_columns_2 .edd_download:nth-child(2n+2),
+.edd_downloads_list.edd_download_columns_3 .edd_download:nth-child(3n+3),
+.edd_downloads_list.edd_download_columns_4 .edd_download:nth-child(4n+4),
+.edd_downloads_list.edd_download_columns_5 .edd_download:nth-child(5n+5),
 .edd_downloads_list.edd_download_columns_6 .edd_download:nth-child(6n+6) {
 	margin-right: 0;
 }
