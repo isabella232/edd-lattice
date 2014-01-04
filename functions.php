@@ -565,6 +565,7 @@ function lattice_social_icons() {
 /* ----------------------------------------------------------- *
  * 6. Custom Actions/Filters
  * ----------------------------------------------------------- */
+
 /**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
  *
@@ -721,6 +722,28 @@ function lattice_modal() {
 	$modal = ob_get_clean();
 	echo apply_filters( 'lattice_modal', $modal );
 } // end lattice_modal
+
+/**
+ * Add a wrapping <div> to the edd_price_options if multi-check variable pricing
+ * is enabled
+ */
+function lattice_wrap_multi_check_before( $download_id ) {
+	$single_price_option_mode = edd_single_price_option_mode( $download_id );
+
+	if ( $single_price_option_mode ) {
+		echo '<div class="edd-multi-check-price-options">';
+	} // end if
+} // end lattice_wrap_multi_check_before
+add_action( 'edd_before_price_options', 'lattice_wrap_multi_check_before' );
+
+function lattice_wrap_multi_check_after( $download_id ) {
+	$single_price_option_mode = edd_single_price_option_mode( $download_id );
+
+	if ( $single_price_option_mode ) {
+		echo '</div><!-- /.edd-multi-check-price-options -->';
+	} // end if
+} // end lattice_wrap_multi_check_after
+add_action( 'edd_after_price_options', 'lattice_wrap_multi_check_after' );
 
 /* ----------------------------------------------------------- *
  * 7. Widgets
@@ -1043,3 +1066,11 @@ function lattice_deactivate_license() {
 	}
 }
 add_action( 'admin_init', 'lattice_deactivate_license' );
+
+function lattice_setup_post() {
+	if ( is_404() ) {
+		$GLOBALS['post'] = new stdClass;
+		$GLOBALS['post']->ID = 0;
+	}
+}
+add_action( 'wp', 'lattice_setup_post' );
