@@ -71,15 +71,6 @@
 				</div><!-- /.view-more-button-div -->
 			<?php } // end if ?>
 		</section><!-- /.downloads-container -->
-
-		<section class="testimonials-container clearfix">
-			<div class="inside">
-				<article class="type-testimonial">
-					<p class="quote">Been searching for years to not have a paid service to do this for me and finally found it. Don’t know why it took so long, but everything works great for what I need in a small business. Thank you and for your support.</p>
-					<p class="author">&mdash; John Smith, CEO, World Wide Web</p>
-				</article><!-- /.type-testimonial -->
-			</div>
-		</section><!-- /.testimonials-container -->
 	</section><!-- /.main -->
 
 <?php get_footer(); ?>

@@ -901,20 +901,13 @@ span > object {
 	background: #f9f9f9;
 }
 
-.main .downloads-container,
-.main .testimonials-container {
+.main .downloads-container {
 	padding: 50px 0 25px;
 }
 
-.main .downloads-container .inside,
-.main .testimonials-container .inside {
+.main .downloads-container .inside {
 	width: 960px;
 	margin: 0 auto;
-}
-
-.main .testimonials-container .inside {
-	padding-bottom: 12.5px;
-	border-bottom: 2px solid #ddd;
 }
 
 .main .downloads-container .inside .type-download {
@@ -1046,21 +1039,6 @@ span > object {
 .main .downloads-container .view-more-button-div .view-more-button a:hover {
 	background: #e56363;
 	color: #fff;
-}
-
-.main .testimonials-container .type-testimonial .quote {
-	font-family: Georgia, serif;
-	font-style: italic;
-	font-size: 20px;
-	font-size: 2rem;
-	text-align: center;
-	letter-spacing: -0.5px;
-}
-
-.main .testimonials-container .type-testimonial .author {
-	text-align: right;
-	text-transform: uppercase;
-	font-weight: 600;
 }
 
 /**
@@ -1952,19 +1930,22 @@ span > object {
 }
 
 .blog .content .post h2.entry-title,
-.archive .content .post h2.entry-title {
+.archive .content .post h2.entry-title,
+.search .content .post h2.entry-title {
 	margin-bottom: 10px;
 	margin-bottom: 1rem;
 }
 
 .blog .content .post .entry-meta,
-.archive .content .post .entry-meta {
+.archive .content .post .entry-meta,
+.search .content .post .entry-meta {
 	margin-bottom: 20px;
 	margin-bottom: 2rem;
 }
 
 .blog .content .post,
-.archive .content .post {
+.archive .content .post,
+.search .content .post {
 	background: #fff;
 	border-radius: 2px;
 	-webkit-border-radius: 2px;
@@ -1982,7 +1963,11 @@ span > object {
 .archive .content .post .entry-meta .entry-date,
 .archive .content .post .entry-meta .comments-number,
 .archive .content .post .entry-meta .category-links,
-.archive .content .post .entry-meta .edit-link {
+.archive .content .post .entry-meta .edit-link,
+.search .content .post .entry-meta .entry-date,
+.search .content .post .entry-meta .comments-number,
+.search .content .post .entry-meta .category-links,
+.search .content .post .entry-meta .edit-link {
 	text-transform: uppercase;
 	font-weight: 300;
 	background: #fff;
@@ -1998,7 +1983,10 @@ span > object {
 .blog .content .post .entry-meta .edit-link a,
 .archive .content .post .entry-meta .comments-number a,
 .archive .content .post .entry-meta .category-links a,
-.archive .content .post .entry-meta .edit-link a {
+.archive .content .post .entry-meta .edit-link a,
+.search .content .post .entry-meta .comments-number a,
+.search .content .post .entry-meta .category-links a,
+.search .content .post .entry-meta .edit-link a {
 	color: #333;
 }
 
@@ -2007,12 +1995,16 @@ span > object {
 .blog .content .post .entry-meta .edit-link:hover a,
 .archive .content .post .entry-meta .comments-number:hover a,
 .archive .content .post .entry-meta .category-links a:hover,
-.archive .content .post .entry-meta .edit-link:hover a {
+.archive .content .post .entry-meta .edit-link:hover a,
+.search .content .post .entry-meta .comments-number:hover a,
+.search .content .post .entry-meta .category-links a:hover,
+.search .content .post .entry-meta .edit-link:hover a  {
 	color: #666;
 }
 
 .blog .content .post .continue-reading a,
-.archive .content .post .continue-reading a {
+.archive .content .post .continue-reading a,
+.search .content .post .continue-reading a {
 	display: inline-block;
 	background: #fff;
 	padding: 3px 8px;
@@ -2023,40 +2015,47 @@ span > object {
 }
 
 .blog .content .post .continue-reading a:hover,
-.archive .content .post .continue-reading a:hover {
+.archive .content .post .continue-reading a:hover,
+.search .content .post .continue-reading a:hover {
 	background: #e56363;
 	color: #fff;
 }
 
 .blog #page-nav,
-.archive #page-nav {
+.archive #page-nav,
+.search #page-nav {
 	margin-bottom: 30px;
 }
 
 .blog #page-nav .paged,
-.archive #page-nav .paged {
+.archive #page-nav .paged,
+.search #page-nav .paged {
 	list-style: none;
 	margin: 20px 0;
 	padding: 0;
 }
 
 .blog #page-nav .paged li,
-.archive #page-nav .paged li {
+.archive #page-nav .paged li,
+.search #page-nav .paged li {
 	display: inline;
 }
 
 .blog #page-nav .paged li.previous,
-.archive #page-nav .paged li.previous {
+.archive #page-nav .paged li.previous,
+.search #page-nav .paged li.previous {
 	float: left;
 }
 
 .blog #page-nav .paged li.next,
-.archive #page-nav .paged li.next {
+.archive #page-nav .paged li.next,
+.search #page-nav .paged li.next {
 	float: right;
 }
 
 .blog #page-nav .paged li a,
-.archive #page-nav .paged li a {
+.archive #page-nav .paged li a,
+.search #page-nav .paged li a {
 	display: inline-block;
 	float: left;
 	padding: 0 8px;
@@ -2065,19 +2064,22 @@ span > object {
 }
 
 .blog #page-nav .paged li a:hover,
-.archive #page-nav .paged li a:hover {
+.archive #page-nav .paged li a:hover,
+.search #page-nav .paged li a:hover {
 	background: #e56363;
 	color: #fff;
 }
 
 .blog #page-nav .paged li a i,
-.archive #page-nav .paged li a i {
+.archive #page-nav .paged li a i,
+.search #page-nav .paged li a i {
 	font-size: 12px;
 	margin-right: 5px;
 }
 
 .blog #page-nav .paged li.next a i,
-.archive #page-nav .paged li.next a i {
+.archive #page-nav .paged li.next a i,
+.search #page-nav .paged li.next a i {
 	margin-left: 5px;
 	margin-right: 0;
 }
@@ -2765,13 +2767,11 @@ p.edd_error {
 		margin-bottom: 20px;
 	}
 
-	.main .downloads-container,
-	.main .testimonials-container {
+	.main .downloads-container {
 		padding: 25px 0;
 	}
 
-	.main .downloads-container .inside,
-	.main .testimonials-container .inside,
+	.main .downloads-container .inside
 	.main .downloads-container .view-more-button-div {
 		width: 100%;
 		margin: 0;
@@ -2796,10 +2796,6 @@ p.edd_error {
 		color: #e56363;
 		background: #fff;
 		border: 1px solid #fff;
-	}
-
-	.main .testimonials-container .type-testimonial {
-		padding: 0 20px;
 	}
 
 	.main .container,
@@ -2867,8 +2863,7 @@ p.edd_error {
 		height: 0;
 	}
 
-	.main .downloads-container,
-	.main .testimonials-container {
+	.main .downloads-container {
 		width: 100%;
 		margin: 0 auto;
 	}
@@ -2998,7 +2993,6 @@ p.edd_error {
 	}
 
 	.main .downloads-container .inside,
-	.main .testimonials-container .inside,
 	.main .downloads-container .view-more-button-div {
 		width: 960px;
 		margin: 0 auto;
