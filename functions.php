@@ -834,19 +834,34 @@ function lattice_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
 	// Add Social Profiles section
-	$wp_customize->add_section( 'lattice_social', array(
-		'title'       => __( 'Social Profiles', 'lattice' ),
-		'description' => __( 'Add URLs to your social profiles to display a link to them in the footer.', 'lattice' ),
+	$wp_customize->add_section( 'lattice', array(
+		'title'       => __( 'Lattice Options', 'lattice' ),
+		'description' => '',
 		'priority'    => 130,
 	) );
 
+	$wp_customize->add_section( 'lattice_social', array(
+		'title'       => __( 'Social Profiles', 'lattice' ),
+		'description' => __( 'Add URLs to your social profiles to display a link to them in the footer.', 'lattice' ),
+		'priority'    => 131,
+	) );
+
 	// Register all the settings
+	$wp_customize->add_setting( 'lattice_homepage_text', array(
+		'default' => __( 'Welcome To Our Store', 'lattice' )
+	) );
 	$wp_customize->add_setting( 'lattice_twitter' );
 	$wp_customize->add_setting( 'lattice_facebook' );
 	$wp_customize->add_setting( 'lattice_instagram' );
 	$wp_customize->add_setting( 'lattice_gplus' );
 
 	// Add all the controls
+	$wp_customize->add_control( 'lattice_homepage_text', array(
+		'label'   => __( 'Homepage Introduction Text', 'lattice' ),
+		'section' => 'lattice',
+		'type'    => 'text'
+	) );
+
 	$wp_customize->add_control( 'lattice_twitter', array(
 		'label'   => __( 'Twitter Username (without the @)', 'lattice' ),
 		'section' => 'lattice_social',

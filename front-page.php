@@ -13,7 +13,7 @@
 
 	<section class="intro clearfix">
 		<div class="inside">
-			<h1 class="page-title"><?php _e( 'Welcome to our Store', 'lattice' ); ?></h1>
+			<h1 class="page-title"><?php echo get_theme_mod( 'lattice_homepage_text', __( 'Welcome To Our Store', 'lattice' ) ) ?></h1>
 		</div><!-- /.inside -->
 	</section><!-- /.intro -->
 
