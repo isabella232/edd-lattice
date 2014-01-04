@@ -127,6 +127,8 @@ if ( ! class_exists( 'EDD_SL_Theme_Updater' ) ) {
  * @version	1.0
  */
 function lattice_register_theme_scripts() {
+	global $wp_styles;
+
 	$deps = array( 'lato-font' );
 
 	wp_register_style( 'lato-font', 'http://fonts.googleapis.com/css?family=Lato:300,400,700' );
@@ -175,6 +177,8 @@ CSS;
 	wp_localize_script( 'lattice-js', 'lattice_vars', array(
 		'purchase_text' => __( 'Purchase Options', 'lattice' )
 	) );
+
+	array_push( $wp_styles->registered, $wp_styles->registered['lattice-style'] );
 } // end lattice_register_theme_scripts
 add_action( 'wp_enqueue_scripts', 'lattice_register_theme_scripts' );
 

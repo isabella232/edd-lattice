@@ -2624,6 +2624,79 @@ p.edd_error {
 	background: #e56363;
 }
 
+div.fes-form fieldset .fes-fields input[type=text],
+div.fes-form fieldset .fes-fields input[type=password],
+div.fes-form fieldset .fes-fields input[type=email],
+div.fes-form fieldset .fes-fields input[type=url],
+div.fes-form fieldset .fes-fields input[type=number],
+div.fes-form fieldset .fes-fields textarea {
+	font-size: 100%;
+	margin: 0;
+	vertical-align: baseline;
+	*vertical-align: middle;
+	background: #fff;
+	border: 1px solid #ddd;
+	outline: none;
+	padding: 0 3px;
+	box-shadow: none;
+	color: #333;
+}
+
+div.fes-form fieldset .fes-fields input[type=text]:hover,
+div.fes-form fieldset .fes-fields input[type=password]:hover,
+div.fes-form fieldset .fes-fields input[type=email]:hover,
+div.fes-form fieldset .fes-fields input[type=url]:hover,
+div.fes-form fieldset .fes-fields input[type=number]:hover,
+div.fes-form fieldset .fes-fields textarea:hover,
+div.fes-form fieldset .fes-fields input[type=text]:focus,
+div.fes-form fieldset .fes-fields input[type=password]:focus,
+div.fes-form fieldset .fes-fields input[type=email]:focus,
+div.fes-form fieldset .fes-fields input[type=url]:focus,
+div.fes-form fieldset .fes-fields input[type=number]:focus,
+div.fes-form fieldset .fes-fields textarea:focus {
+	border: 1px solid #e56363;
+}
+
+div.fes-form .fes-submit input[type=submit] {
+	cursor: pointer;
+	-webkit-appearance: button;
+	background: #fff;
+	text-transform: uppercase;
+	padding: 3px 8px;
+	border: 1px solid #e56363;
+	color: #e56363;
+	text-decoration: none;
+	display: inline-block;
+	-webkit-transition: all .15s ease-in-out;
+	border-radius: 0;
+	box-shadow: none;
+	margin-bottom: 20px;
+	font-size: 16px;
+	font-size: 1.6rem;
+	height: auto;
+}
+
+div.fes-form .fes-submit input[type=submit]:hover {
+	background: #e56363;
+	color: #fff;
+}
+
+.fes-vendor-menu {
+	margin-bottom: 20px;
+	display: block;
+	clear: both;
+	height: 1%;
+}
+
+.fes-vendor-menu:after {
+	content: "";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	font-size: 0;
+	height: 0;
+}
+
 /**
  * 14 Media Queries
  * -----------------------------------------------------------------------------
