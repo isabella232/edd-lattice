@@ -2648,10 +2648,14 @@ p.edd_error {
  * -----------------------------------------------------------------------------
  */
 
-#fes-wraper nav { border-bottom: 3px solid #e56363; }
+#fes-wraper nav {
+	border-bottom: 3px solid #e56363;
+}
 
 #fes-wraper .nav ul li.active,
-#fes-wraper nav ul li.active { background: #e56363; }
+#fes-wraper nav ul li.active {
+	background: #e56363;
+}
 
 #fes-wraper .nav ul li:hover,
 #fes-wraper nav ul li:hover {
