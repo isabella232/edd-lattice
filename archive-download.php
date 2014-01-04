@@ -21,24 +21,27 @@
 	<section class="main clearfix">
 		<div class="container clearfix">
 			<section class="content">
-				<?php if ( have_posts() ) : ?>
+				<?php if ( have_posts() ) { ?>
 				<div class="edd_downloads_list edd_download_columns_3">
 					<?php
 					// Start the Loop.
-					while ( have_posts() ) : the_post();
+					while ( have_posts() ) {
+						the_post();
 
+						/**
+						 * Include the post-specific template for the content.
+						 */
 						get_template_part( 'content', 'download' );
 
-					endwhile;
+					} // end while
 					?>
 				</div><!-- /.edd_downloads_list -->
 				<?php
 					lattice_page_navigation();
-				else :
+				} else {
 					// If no content, include the "No posts found" template.
 					get_template_part( 'content', 'none' );
-
-				endif;
+				} // end if
 				?>
 			</section><!-- /.content -->
 

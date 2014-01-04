@@ -44,7 +44,8 @@
 				<?php
 				if ( have_posts() ) {
 					// Start the Loop.
-					while ( have_posts() ) { the_post();
+					while ( have_posts() ) {
+						the_post();
 
 						/*
 						 * Include the post format-specific template for the content. If you want to

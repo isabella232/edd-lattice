@@ -33,33 +33,33 @@
 				if ( $downloads->have_posts() ) {
 					$c = 0;
 					// Start the Loop.
-					while ( $downloads->have_posts() ) { $downloads->the_post(); $c++;
-				?>
-					<?php
-					if ( 0 == $c % 3 ) {
-						$download_clear = 'download-clear clearfix';
-					} else {
-						$download_clear = '';
-					} // end if
-					?>
-					<article <?php post_class( $download_clear ); ?> id="post-<?php the_ID(); ?>">
-						<div class="download-image">
-							<?php
-							if ( function_exists( 'has_post_thumbnail' ) && has_post_thumbnail( get_the_ID() ) ) {
-								the_post_thumbnail( 'lattice-download-grid' );
-							} // end if
-							?>
-							<div class="overlay">
-								<?php lattice_purchase_link(); ?>
-								<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( __( 'Permanent Link to %s', 'lattice' ), the_title_attribute( 'echo=0' ) ); ?>"><?php _e( 'More Info', 'lattice' ); ?></a>
-							</div><!-- /.overlay -->
-						</div><!-- /.entry-image -->
+					while ( $downloads->have_posts() ) {
+						$downloads->the_post(); $c++;
 
-						<div class="download-title">
-							<h3><?php the_title(); ?></h3>
-						</div><!-- /.download-title -->
-					</article><!-- /.download -->
-				<?php
+						if ( 0 == $c % 3 ) {
+							$download_clear = 'download-clear clearfix';
+						} else {
+							$download_clear = '';
+						} // end if
+						?>
+						<article <?php post_class( $download_clear ); ?> id="post-<?php the_ID(); ?>">
+							<div class="download-image">
+								<?php
+								if ( function_exists( 'has_post_thumbnail' ) && has_post_thumbnail( get_the_ID() ) ) {
+									the_post_thumbnail( 'lattice-download-grid' );
+								} // end if
+								?>
+								<div class="overlay">
+									<?php lattice_purchase_link(); ?>
+									<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( __( 'Permanent Link to %s', 'lattice' ), the_title_attribute( 'echo=0' ) ); ?>"><?php _e( 'More Info', 'lattice' ); ?></a>
+								</div><!-- /.overlay -->
+							</div><!-- /.entry-image -->
+
+							<div class="download-title">
+								<h3><?php the_title(); ?></h3>
+							</div><!-- /.download-title -->
+						</article><!-- /.download -->
+					<?php
 					} // end while
 				} // end if
 				?>
