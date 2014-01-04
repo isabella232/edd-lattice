@@ -131,7 +131,6 @@ function lattice_register_theme_scripts() {
 
 	wp_register_style( 'lato-font', 'http://fonts.googleapis.com/css?family=Lato:300,400,700' );
 	wp_register_style( 'lattice-style', get_stylesheet_uri(), $deps, '1.0' );
-	wp_register_style( 'font-awesome', get_stylesheet_directory_uri() . '/css/font-awesome.min.css', array( 'lattice-style' ), '4.0.3' );
 
 	$path = EDD_PLUGIN_URL . '/templates';
 
@@ -164,7 +163,6 @@ CSS;
 
 	wp_enqueue_style( 'lato-font'     );
 	wp_enqueue_style( 'lattice-style' );
-	wp_enqueue_style( 'font-awesome'  );
 	wp_add_inline_style( 'lattice-style', $edd_fonts_css );
 
 	wp_dequeue_style( 'edd-styles' );
@@ -828,10 +826,10 @@ add_action( 'wp', 'lattice_setup_author' );
  * @version	1.0
  */
 function lattice_customize_register( $wp_customize ) {
-	// Add postMessage support for site title and description for the Theme Customizer.
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	// Add postMessage support
+	$wp_customize->get_setting( 'blogname' )->transport              = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport       = 'postMessage';
+	$wp_customize->get_setting( 'header_textcolor' )->transport      = 'postMessage';
 
 	// Add Social Profiles section
 	$wp_customize->add_section( 'lattice', array(
