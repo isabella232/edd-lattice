@@ -1860,6 +1860,7 @@ span > object {
 .edd_downloads_list .edd_download {
 	margin-right: 15px;
 	margin-bottom: 15px;
+	float: left;
 }
 
 .edd_downloads_list .edd_download .edd-add-to-cart {
@@ -1881,7 +1882,7 @@ span > object {
 }
 
 .edd_downloads_list.edd_download_columns_2 .edd_download {
-	width: 216px !important;
+	width: 332px !important;
 }
 
 .edd_downloads_list.edd_download_columns_2 .edd_download:nth-child(2n+2) {
