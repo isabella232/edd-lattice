@@ -1066,11 +1066,3 @@ function lattice_deactivate_license() {
 	}
 }
 add_action( 'admin_init', 'lattice_deactivate_license' );
-
-function lattice_setup_post() {
-	if ( is_404() ) {
-		$GLOBALS['post'] = new stdClass;
-		$GLOBALS['post']->ID = 0;
-	}
-}
-add_action( 'wp', 'lattice_setup_post' );
