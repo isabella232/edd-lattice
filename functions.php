@@ -422,6 +422,7 @@ function lattice_page_navigation() {
 
 	if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) {
 	?>
+		<div class="clearfix">&nbsp;</div>
 		<div id="page-nav" class="clearfix">
 			<ul class="paged">
 				<?php if ( get_next_posts_link() ) { ?>
