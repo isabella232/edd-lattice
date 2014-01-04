@@ -472,7 +472,7 @@ function lattice_comments_popup_link() {
 	comments_popup_link(
 		sprintf( __( '%1$s Leave a comment', 'lattice' ), $icon ),
 		sprintf( __( '%1$s 1 Comment', 'lattice' ), $icon ),
-		sprintf( __( '%1$s % Comments', 'lattice' ), $icon )
+		$icon . ' ' . __( '% Comments', 'lattice' )
 	);
 } // end lattice_comments_popup_link
 
