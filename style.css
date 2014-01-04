@@ -152,7 +152,9 @@ img {
 
 a:focus,
 a:hover,
-a:active { outline: none !important; }
+a:active {
+	outline: none !important;
+}
 
 a img {
 	border: 0;
