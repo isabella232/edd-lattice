@@ -1858,9 +1858,8 @@ span > object {
  * Shortcodes
  */
 .edd_downloads_list .edd_download {
-	margin-right: 15px;
-	margin-bottom: 15px;
-	float: left;
+	padding-right: 15px;
+	padding-bottom: 15px;
 }
 
 .edd_downloads_list .edd_download .edd-add-to-cart {
@@ -1879,34 +1878,6 @@ span > object {
 	margin-bottom: 20px;
 	padding-bottom: 10px;
 	border-bottom: 1px solid #ddd;
-}
-
-.edd_downloads_list.edd_download_columns_2 .edd_download {
-	width: 332px !important;
-}
-
-.edd_downloads_list.edd_download_columns_3 .edd_download {
-	width: 216px !important;
-}
-
-.edd_downloads_list.edd_download_columns_4 .edd_download {
-	width: 158px !important;
-}
-
-.edd_downloads_list.edd_download_columns_5 .edd_download {
-	width: 124px !important;
-}
-
-.edd_downloads_list.edd_download_columns_6 .edd_download {
-	width: 100px !important;
-}
-
-.edd_downloads_list.edd_download_columns_2 .edd_download:nth-child(2n+2),
-.edd_downloads_list.edd_download_columns_3 .edd_download:nth-child(3n+3),
-.edd_downloads_list.edd_download_columns_4 .edd_download:nth-child(4n+4),
-.edd_downloads_list.edd_download_columns_5 .edd_download:nth-child(5n+5),
-.edd_downloads_list.edd_download_columns_6 .edd_download:nth-child(6n+6) {
-	margin-right: 0;
 }
 
  /**
@@ -3034,9 +3005,9 @@ p.edd_error {
 	}
 
 	.edd_downloads_list .edd_download {
-		margin-right: 15px;
-		margin-bottom: 15px;
-		float: left !important;
+		padding-right: 15px;
+		padding-bottom: 15px;
+		float: left;
 	}
 
 	.edd_downloads_list.edd_download_columns_3 .edd_download {
