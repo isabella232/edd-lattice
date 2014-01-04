@@ -671,13 +671,13 @@ function lattice_body_class( $classes ) {
 	global $edd_options;
 
 	/* Add custom <body> classes to the checkout */
-	if ( is_page( $edd_options['purchase_page'] ) ) {
+	if ( is_page( edd_get_option( 'purchase_page' ) ) ) {
 		$classes[] = 'page-template';
 		$classes[] = 'page-template-template-full-width-php';
 	} // end if
 
 	/* Add custom <body> classes to the purchase confirmation page */
-	if ( is_page( $edd_options['success_page'] ) ) {
+	if ( is_page( edd_get_option( 'success_page' ) ) ) {
 		$classes[] = 'edd-success-page';
 	} // end if
 
