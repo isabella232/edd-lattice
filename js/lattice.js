@@ -101,28 +101,26 @@
 		});
 
 		/** Custom radio buttons for variable priced downloads */
-		$('.edd_price_options').each(function () {
-			if (! $(this).parent('.edd-multi-check-price-options').length > 0) {
-				$('label', this).unwrap();
+		if (! $('.edd_price_options').parent('.edd-multi-check-price-options').length > 0) {
+			$('.edd_price_options label').unwrap();
 
-				$('label', this).each(function () {
+			$('.edd_price_options label').each(function () {
+				$(this).removeClass('selected');
+				$(this).prepend('<span class="bullet"><i class="fa fa-dot-circle-o"></i></span>');
+			});
+
+			$('.edd_price_options label').on('click', function () {
+				$('.edd_price_options label').each(function () {
 					$(this).removeClass('selected');
-					$(this).prepend('<span class="bullet"><i class="fa fa-dot-circle-o"></i></span>');
 				});
 
-				$('label', this).on('click', function () {
-					$('label', this).each(function () {
-						$(this).removeClass('selected');
-					});
+				$(this).addClass('selected');
+			});
 
-					$(this).addClass('selected');
-				});
-
-				if ($('input', this).prop('checked')) {
-					$('input:checked', this).parent().addClass('selected');
-				}
+			if ($('.edd_price_options input').prop('checked')) {
+				$('.edd_price_options input:checked').parent().addClass('selected');
 			}
-		});
+		}
 
 		$('.comment_form_rating .edd_reviews_rating_box a').on('click', function (e) {
 			$('.comment_form_rating .edd_reviews_rating_box a').removeClass('active');
