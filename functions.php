@@ -71,6 +71,9 @@ function lattice_theme_setup() {
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
+	// This theme styles the visual editor to resemble the theme style.
+	add_editor_style( array( 'css/editor-style.css', lattice_font_url() ) );
+
 	/**
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
@@ -1003,6 +1006,25 @@ function lattice_setup_author() {
 	} // end if
 } // end lattice_setup_author
 add_action( 'wp', 'lattice_setup_author' );
+
+/**
+ * Register Lato Google font for Lattice
+ *
+ * @since   1.0
+ * @version 1.0
+ */
+function lattice_font_url() {
+	$font_url = '';
+	/*
+	 * Translators: If there are characters in your language that are not supported
+	 * by Lato, translate this to 'off'. Do not translate into your own language.
+	 */
+	if ( 'off' !== _x( 'on', 'Lato font: on or off', 'lattice' ) ) {
+			$font_url = add_query_arg( 'family', urlencode( 'Lato:300,400,700,900,300italic,400italic,700italic' ), "//fonts.googleapis.com/css" );
+	}
+
+	return $font_url;
+}
 
 /* ----------------------------------------------------------- *
  * 9. Customizer
