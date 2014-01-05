@@ -22,9 +22,10 @@
 		<div class="container clearfix">
 			<section class="content">
 				<?php if ( have_posts() ) { ?>
-				<div class="edd_downloads_list edd_download_columns_3">
+				<div class="downloads col-3 clearfix">
 					<?php
 					// Start the Loop.
+					$c = 1;
 					while ( have_posts() ) {
 						the_post();
 
@@ -33,6 +34,8 @@
 						 */
 						get_template_part( 'content', 'download' );
 
+						if ( $c % 3 == 0 ) { echo '<div style="clear:both;"></div>'; }
+						$c++;
 					} // end while
 					?>
 				</div><!-- /.edd_downloads_list -->
