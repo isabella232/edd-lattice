@@ -842,7 +842,7 @@ function lattice_downloads_shortcode( $display, $atts, $buy_button, $columns, $c
 					'current' => max( 1, $query['paged'] ),
 					'total'   => $downloads->max_num_pages
 				) );
-			}
+			} // end if
 			?>
 		</div><!-- /.edd_download_pagination -->
 
@@ -850,7 +850,7 @@ function lattice_downloads_shortcode( $display, $atts, $buy_button, $columns, $c
 	<?php
 	$display = ob_get_clean();
 	return $display;
-}
+} // end lattice_downloads_shortcode
 add_filter( 'downloads_shortcode', 'lattice_downloads_shortcode', 10, 11 );
 
 function lattice_purchase_download_form( $purchase_form, $args ) {
@@ -866,8 +866,8 @@ function lattice_purchase_download_form( $purchase_form, $args ) {
 			$args['text'] = __( 'Free', 'lattice' ) . '&nbsp;&ndash;&nbsp;' . $args['text'];
 		} else {
 			$args['text'] = edd_currency_filter( edd_format_amount( $price ) ) . '&nbsp;&ndash;&nbsp;' . $args['text'];
-		}
-	}
+		} // end if
+	} // end if
 
 	if ( edd_item_in_cart( $args['download_id'] ) && ! $variable_pricing ) {
 		$button_display   = 'style="display:none;"';
@@ -875,7 +875,7 @@ function lattice_purchase_download_form( $purchase_form, $args ) {
 	} else {
 		$button_display   = '';
 		$checkout_display = 'style="display:none;"';
-	}
+	} // end if
 
 	$form_id = ! empty( $args['form_id'] ) ? $args['form_id'] : 'edd_purchase_' . $args['download_id'];
 	ob_start();
@@ -896,7 +896,7 @@ function lattice_purchase_download_form( $purchase_form, $args ) {
 					esc_attr( $type ),
 					$button_display
 				);
-			}
+			} // end if
 
 			printf(
 				'<input type="submit" class="edd-add-to-cart edd-no-js %1$s" name="edd_purchase_download" value="%2$s" data-action="edd_add_to_cart" data-download-id="%3$s" %4$s %5$s %6$s/>',
@@ -917,7 +917,7 @@ function lattice_purchase_download_form( $purchase_form, $args ) {
 			);
 			?>
 
-			<?php if ( edd_is_ajax_enabled() ) : ?>
+			<?php if ( edd_is_ajax_enabled() ) { ?>
 				<span class="edd-cart-ajax-alert">
 					<span class="edd-cart-added-alert" style="display: none;">
 						<?php printf(
@@ -928,12 +928,15 @@ function lattice_purchase_download_form( $purchase_form, $args ) {
 						?>
 					</span>
 				</span>
-			<?php endif; ?>
-			<?php if ( edd_display_tax_rate() && edd_prices_include_tax() ) {
+			<?php } // end if ?>
+
+			<?php
+			if ( edd_display_tax_rate() && edd_prices_include_tax() ) {
 				echo '<span class="edd_purchase_tax_rate">' . sprintf( __( 'Includes %1$s&#37; tax', 'edd' ), edd_get_tax_rate() * 100 ) . '</span>';
 			} elseif ( edd_display_tax_rate() && ! edd_prices_include_tax() ) {
 				echo '<span class="edd_purchase_tax_rate">' . sprintf( __( 'Excluding %1$s&#37; tax', 'edd' ), edd_get_tax_rate() * 100 ) . '</span>';
-			} ?>
+			} // end if
+			?>
 		</div><!--end .edd_purchase_submit_wrapper-->
 
 		<input type="hidden" name="download_id" value="<?php echo esc_attr( $args['download_id'] ); ?>">
@@ -950,7 +953,7 @@ function lattice_purchase_download_form( $purchase_form, $args ) {
 	$purchase_form = ob_get_clean();
 
 	return $purchase_form;
-}
+} // end lattice_purchase_download_form
 add_filter( 'edd_purchase_download_form', 'lattice_purchase_download_form', 10, 2 );
 
 /**
@@ -964,7 +967,7 @@ add_filter( 'edd_purchase_download_form', 'lattice_purchase_download_form', 10, 
 function lattice_page_menu_args( $args ) {
 	$args['show_home'] = true;
 	return $args;
-}
+} // end lattice_page_menu_args
 add_filter( 'wp_page_menu_args', 'lattice_page_menu_args' );
 
 /* ----------------------------------------------------------- *
@@ -1051,11 +1054,11 @@ function lattice_font_url() {
 	 * by Lato, translate this to 'off'. Do not translate into your own language.
 	 */
 	if ( 'off' !== _x( 'on', 'Lato font: on or off', 'lattice' ) ) {
-			$font_url = add_query_arg( 'family', urlencode( 'Lato:300,400,700,900,300italic,400italic,700italic' ), "//fonts.googleapis.com/css" );
-	}
+			$font_url = add_query_arg( 'family', urlencode( 'Lato:300,400,700' ), "//fonts.googleapis.com/css" );
+	} // end if
 
 	return $font_url;
-}
+} // end lattice_font_url
 
 /* ----------------------------------------------------------- *
  * 9. Customizer
@@ -1074,13 +1077,14 @@ function lattice_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-	// Add Social Profiles section
+	// Add main options section
 	$wp_customize->add_section( 'lattice', array(
 		'title'       => __( 'Lattice Options', 'lattice' ),
 		'description' => '',
 		'priority'    => 130,
 	) );
 
+	// Add social profiles section
 	$wp_customize->add_section( 'lattice_social', array(
 		'title'       => __( 'Social Profiles', 'lattice' ),
 		'description' => __( 'Add URLs to your social profiles to display a link to them in the footer.', 'lattice' ),
@@ -1160,7 +1164,7 @@ function lattice_theme_updater() {
 		'item_name'      => 'Lattice',
 		'author'         => 'Sunny Ratilal'
 	) );
-}
+} // end lattice_theme_updater
 add_action( 'admin_init', 'lattice_theme_updater' );
 
 /**
@@ -1171,7 +1175,7 @@ add_action( 'admin_init', 'lattice_theme_updater' );
  */
 function lattice_add_menu_page() {
 	add_theme_page( __( 'Theme License', 'lattice' ), __( 'Theme License', 'lattice' ), 'manage_options', 'lattice-license', 'lattice_license_page' );
-}
+} // end lattice_add_menu_page
 add_action( 'admin_menu', 'lattice_add_menu_page' );
 
 /**
@@ -1222,7 +1226,7 @@ function lattice_license_page() {
 			<?php submit_button(); ?>
 		</form>
 	<?php
-}
+} // end lattice_license_page
 
 /**
  * Register setting for theme license page
@@ -1233,8 +1237,8 @@ function lattice_license_page() {
 function lattice_register_settings() {
 	// creates our settings in the options table
 	register_setting( 'lattice_license', 'lattice_license_key', 'lattice_sanitize_license' );
-}
-add_action('admin_init', 'lattice_register_settings');
+} // end lattice_register_settings
+add_action( 'admin_init', 'lattice_register_settings' );
 
 /**
  * Gets rid of the local license status option when adding a new one
@@ -1252,7 +1256,7 @@ function lattice_sanitize_license( $new ) {
 	} // end if
 
 	return $new;
-}
+} // end lattice_sanitize_license
 
 /**
  * Activate the license key based on the input
@@ -1284,7 +1288,7 @@ function lattice_activate_license() {
 
 		update_option( 'lattice_license_key_status', $license_data->license );
 	} // end if
-}
+} // end lattice_activate_license
 add_action( 'admin_init', 'lattice_activate_license' );
 
 /**
@@ -1319,5 +1323,5 @@ function lattice_deactivate_license() {
 			delete_option( 'lattice_license_key_status' );
 		} // end if
 	} // end if
-}
+} // end lattice_deactivate_license
 add_action( 'admin_init', 'lattice_deactivate_license' );
