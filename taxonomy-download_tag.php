@@ -16,7 +16,7 @@
 			<h1 class="single-title"><?php single_term_title(); ?></h1>
 			<?php lattice_term_description(); ?>
 		</div><!-- /.inside -->
-	</section><!-- /.single-download-title-block -->
+	</section><!-- /.single-title-block -->
 
 	<section class="main clearfix">
 		<div class="container clearfix">
@@ -24,16 +24,23 @@
 				<?php
 				if ( have_posts() ) {
 				?>
-				<div class="edd_downloads_list edd_download_columns_3">
+				<div class="downloads col-3 clearfix">
 					<?php
 					// Start the Loop.
+					$c = 1;
 					while ( have_posts() ) {
 						the_post();
 
+						/**
+						 * Include the post-specific template for the content.
+						 */
 						get_template_part( 'content', 'download' );
+
+						if ( $c % 3 == 0 ) { echo '<div style="clear:both;"></div>'; }
+						$c++;
 					} // end while
 					?>
-				</div><!-- /.edd_downloads_list -->
+				</div><!-- /.downloads -->
 				<?php
 					lattice_page_navigation();
 				} else {
