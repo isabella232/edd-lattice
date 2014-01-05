@@ -4,11 +4,8 @@
  *
  * Template Name: Full Width
  *
- * @package   Lattice
- * @version   1.0
- * @since     1.0
- * @author	  Sunny Ratilal
- * @copyright Copyright (c) 2013, Sunny Ratilal.
+ * @package Lattice
+ * @since Lattice 1.0
  */
 ?>
 
@@ -20,7 +17,7 @@
 		<div class="inside">
 			<h1 class="single-download-title"><?php the_title(); ?></h1>
 		</div><!-- /.inside -->
-	</section><!-- /.single-download-title-block -->
+	</section><!-- /.single-title-block -->
 
 	<?php rewind_posts(); ?>
 
@@ -28,6 +25,7 @@
 		<div class="container clearfix">
 			<section class="content">
 				<?php
+				// Start the Loop.
 				while ( have_posts() ) {
 					the_post();
 				?>
