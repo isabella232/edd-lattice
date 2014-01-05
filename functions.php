@@ -5,8 +5,8 @@
  * This file adds all the core features to the Lattice theme.
  *
  * @package Lattice
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 
 /* ------------------------------------------------------------------------------- *
@@ -30,7 +30,7 @@
  * Define theme version. This is used for cache-busting stylesheets,
  * JavaScript, and for serializing the version in the database.
  *
- * @since	1.0
+ * @since   1.0
  */
 define( 'LATTICE_THEME_VERSION', '1.0' );
 
@@ -43,8 +43,8 @@ define( 'LATTICE_THEME_VERSION', '1.0' );
  *
  * This has to be done outside of a function for it to perform correctly for Jetpack.
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 if ( ! isset( $content_width ) ) {
 	$content_width = 680; /* pixels */
@@ -58,8 +58,8 @@ if ( ! function_exists( 'lattice_theme_setup' ) ) {
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_theme_setup() {
 	/*
@@ -109,8 +109,8 @@ add_action( 'after_setup_theme', 'lattice_theme_setup' );
 /**
  * Load EDD Theme Updater Class
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 if ( ! class_exists( 'EDD_SL_Theme_Updater' ) ) {
 	require_once( dirname( __FILE__ ) . '/inc/class-edd-sl-theme-updater.php' );
@@ -123,8 +123,8 @@ if ( ! class_exists( 'EDD_SL_Theme_Updater' ) ) {
 /**
  * Register and enqueue scripts and styles
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_register_theme_scripts() {
 	global $wp_styles;
@@ -193,8 +193,8 @@ add_action( 'wp_enqueue_scripts', 'lattice_register_theme_scripts' );
  *
  * @global  $post    WordPress Post Object
  * @global  $comment WordPress Comment Object
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_comment( $comment, $args, $depth ) {
 	global $post;
@@ -281,8 +281,8 @@ function lattice_comment( $comment, $args, $depth ) {
 /**
  * Display custom star icons in the comments form
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_ratings_box( $output ) {
 	ob_start();
@@ -319,8 +319,8 @@ add_filter( 'edd_reviews_rating_box', 'lattice_ratings_box' );
  *
  * @global  $edd_options EDD Options
  * @global  $post WordPress Post Object
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_purchase_link( $post_id = null ) {
 	global $edd_options, $post;
@@ -346,8 +346,8 @@ function lattice_purchase_link( $post_id = null ) {
  * Display a custom post thumbnail based on the current template
  *
  * @uses    the_post_thumbnail()
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_post_thumbnail() {
 	// Bail if the post is password protected or a post thumbnail isn't added
@@ -386,8 +386,8 @@ function lattice_post_thumbnail() {
 /**
  * Add post navigation
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_post_navigation() {
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
@@ -418,8 +418,8 @@ function lattice_post_navigation() {
  * Page Navigation
  *
  * @global  WP_Query $wp_query WordPress Query object.
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_page_navigation() {
 	global $wp_query;
@@ -453,8 +453,8 @@ function lattice_page_navigation() {
 /**
  * Post Date
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_post_date() {
 	printf(
@@ -467,8 +467,8 @@ function lattice_post_date() {
 /**
  * Comments Popup Link
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_comments_popup_link() {
 	$icon = '<i class="fa fa-comments-o"></i>';
@@ -483,8 +483,8 @@ function lattice_comments_popup_link() {
  * Comments Title
  *
  * @global  $post WordPress Post Object
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_comments_title() {
 	global $post;
@@ -515,8 +515,8 @@ function lattice_comments_title() {
  * Custom shopping cart which is displayed in the modal box after a user clicks
  * on the 'shopping cart' icon in the header
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_shopping_cart() {
 	ob_start();
@@ -545,8 +545,8 @@ function lattice_shopping_cart() {
 /**
  * Display the term description if one has been set
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_term_description() {
 	$description = term_description();
@@ -578,8 +578,8 @@ function lattice_social_icons() {
  * @global  $page  Current page
  * @global  $post  WordPress Post Object
  * @return  string $title Newly formatted title
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_wp_title( $title, $sep ) {
 	global $paged, $page, $post;
@@ -601,7 +601,7 @@ function lattice_wp_title( $title, $sep ) {
 		$title = __( '404 - Nothing Found', 'lattice' ) . ' | ' . get_bloginfo( 'name' );
 	/* Author Archive */
 	} elseif ( is_author() ) {
-		$title = get_userdata( get_query_var( 'author' ) )->display_name . ' | ' . __( 'Author Archive', 'lattice' )	. ' | ' . get_bloginfo( 'name' );
+		$title = get_userdata( get_query_var( 'author' ) )->display_name . ' | ' . __( 'Author Archive', 'lattice' )    . ' | ' . get_bloginfo( 'name' );
 	/* Category Archive */
 	} elseif ( is_category() ) {
 		$title = single_cat_title( '', false ) . ' | ' . __( 'Category Archive', 'lattice' ) . ' | ' . get_bloginfo( 'name' );
@@ -635,8 +635,8 @@ add_filter( 'wp_title', 'lattice_wp_title', 10, 2 );
  * We don't want the purchase link to be displayed by default as we'll
  * be using a custom built one
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
 
@@ -653,8 +653,8 @@ add_filter( 'edd_reviews_ratings_html', '__return_false' );
  *
  * @param   int $quality Default image quality assigned by WordPress
  * @return  int
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_image_full_quality( $quality ) {
 	return 100;
@@ -668,8 +668,8 @@ add_filter( 'wp_editor_set_quality', 'lattice_image_full_quality' );
  * @global  $edd_options
  * @param   array $classes Default body classes
  * @return  array $classes Updated body classes
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_body_class( $classes ) {
 	global $edd_options;
@@ -694,8 +694,8 @@ add_filter( 'body_class', 'lattice_body_class' );
  *
  * @global  $edd_options
  * @global  WordPress Post Object $post;
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_template_override() {
 	global $edd_options, $post;
@@ -710,8 +710,8 @@ add_action( 'template_redirect', 'lattice_template_override' );
 /**
  * Generate the HTML for the modal
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_modal() {
 	ob_start();
@@ -729,8 +729,8 @@ function lattice_modal() {
 /**
  * Modify the default output of the [downloads] shortcode
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_downloads_shortcode( $display, $atts, $buy_button, $columns, $column_width, $downloads, $excerpt, $full_content, $price, $thumbnails, $query ) {
 	switch( intval( $columns ) ) {
@@ -779,7 +779,7 @@ function lattice_downloads_shortcode( $display, $atts, $buy_button, $columns, $c
 				} // end if
 
 				if ( $buy_button == 'yes' ) {
-					edd_get_template_part( 'shortcode', 'content-cart-button' );
+					echo edd_get_purchase_link( array( 'download_id' => get_the_ID(), 'price' => false ) );
 				} // end if
 				?>
 
@@ -819,6 +819,106 @@ function lattice_downloads_shortcode( $display, $atts, $buy_button, $columns, $c
 }
 add_filter( 'downloads_shortcode', 'lattice_downloads_shortcode', 10, 11 );
 
+function lattice_purchase_download_form( $purchase_form, $args ) {
+	$variable_pricing = edd_has_variable_prices( $args['download_id'] );
+	$data_variable    = $variable_pricing ? ' data-variable-price=yes' : 'data-variable-price=no';
+	$type             = edd_single_price_option_mode( $args['download_id'] ) ? 'data-price-mode=multi' : 'data-price-mode=single';
+	$type_class       = edd_single_price_option_mode( $args['download_id'] ) ? 'multi' : 'single';
+
+	if ( $args['price'] && $args['price'] !== 'no' && ! $variable_pricing ) {
+		$price = edd_get_download_price( $args['download_id'] );
+
+		if ( 0 == $price ) {
+			$args['text'] = __( 'Free', 'lattice' ) . '&nbsp;&ndash;&nbsp;' . $args['text'];
+		} else {
+			$args['text'] = edd_currency_filter( edd_format_amount( $price ) ) . '&nbsp;&ndash;&nbsp;' . $args['text'];
+		}
+	}
+
+	if ( edd_item_in_cart( $args['download_id'] ) && ! $variable_pricing ) {
+		$button_display   = 'style="display:none;"';
+		$checkout_display = '';
+	} else {
+		$button_display   = '';
+		$checkout_display = 'style="display:none;"';
+	}
+
+	$form_id = ! empty( $args['form_id'] ) ? $args['form_id'] : 'edd_purchase_' . $args['download_id'];
+	ob_start();
+	?>
+	<!--dynamic-cached-content-->
+	<form id="<?php echo $form_id; ?>" class="edd_download_purchase_form edd_price_option_<?php echo $type_class ?>" method="post">
+		<?php do_action( 'edd_purchase_link_top', $args['download_id'] ); ?>
+
+		<div class="edd_purchase_submit_wrapper">
+			<?php
+			 if ( edd_is_ajax_enabled() ) {
+				printf(
+					'<a href="#" class="edd-add-to-cart %1$s" data-action="edd_add_to_cart" data-download-id="%3$s" %4$s %5$s %6$s><span class="edd-add-to-cart-label">%2$s</span> <span class="edd-loading"><i class="edd-icon-spinner edd-icon-spin"></i></span></a>',
+					implode( ' ', array( $args['style'], $args['color'], trim( $args['class'] ) ) ),
+					esc_attr( $args['text'] ),
+					esc_attr( $args['download_id'] ),
+					esc_attr( $data_variable ),
+					esc_attr( $type ),
+					$button_display
+				);
+			}
+
+			printf(
+				'<input type="submit" class="edd-add-to-cart edd-no-js %1$s" name="edd_purchase_download" value="%2$s" data-action="edd_add_to_cart" data-download-id="%3$s" %4$s %5$s %6$s/>',
+				implode( ' ', array( $args['style'], $args['color'], trim( $args['class'] ) ) ),
+				esc_attr( $args['text'] ),
+				esc_attr( $args['download_id'] ),
+				esc_attr( $data_variable ),
+				esc_attr( $type ),
+				$button_display
+			);
+
+			printf(
+				'<a href="%1$s" class="%2$s %3$s" %4$s>' . __( 'Checkout', 'edd' ) . '</a>',
+				esc_url( edd_get_checkout_uri() ),
+				esc_attr( 'edd_go_to_checkout' ),
+				implode( ' ', array( $args['style'], $args['color'], trim( $args['class'] ) ) ),
+				$checkout_display
+			);
+			?>
+
+			<?php if ( edd_is_ajax_enabled() ) : ?>
+				<span class="edd-cart-ajax-alert">
+					<span class="edd-cart-added-alert" style="display: none;">
+						<?php printf(
+								__( '<i class="edd-icon-ok"></i> Added to cart', 'edd' ),
+								'<a href="' . esc_url( edd_get_checkout_uri() ) . '" title="' . __( 'Go to Checkout', 'edd' ) . '">',
+								'</a>'
+							);
+						?>
+					</span>
+				</span>
+			<?php endif; ?>
+			<?php if ( edd_display_tax_rate() && edd_prices_include_tax() ) {
+				echo '<span class="edd_purchase_tax_rate">' . sprintf( __( 'Includes %1$s&#37; tax', 'edd' ), edd_get_tax_rate() * 100 ) . '</span>';
+			} elseif ( edd_display_tax_rate() && ! edd_prices_include_tax() ) {
+				echo '<span class="edd_purchase_tax_rate">' . sprintf( __( 'Excluding %1$s&#37; tax', 'edd' ), edd_get_tax_rate() * 100 ) . '</span>';
+			} ?>
+		</div><!--end .edd_purchase_submit_wrapper-->
+
+		<input type="hidden" name="download_id" value="<?php echo esc_attr( $args['download_id'] ); ?>">
+		<?php if ( ! empty( $args['direct'] ) ) { ?>
+			<input type="hidden" name="edd_action" class="edd_action_input" value="straight_to_gateway">
+		<?php } else { ?>
+			<input type="hidden" name="edd_action" class="edd_action_input" value="add_to_cart">
+		<?php } ?>
+
+		<?php do_action( 'edd_purchase_link_end', $args['download_id'] ); ?>
+	</form><!--end #edd_purchase_<?php echo esc_attr( $args['download_id'] ); ?>-->
+	<!--/dynamic-cached-content-->
+<?php
+	$purchase_form = ob_get_clean();
+
+	return $purchase_form;
+}
+add_filter( 'edd_purchase_download_form', 'lattice_purchase_download_form', 10, 2 );
+
 /* ----------------------------------------------------------- *
  * 7. Widgets
  * ----------------------------------------------------------- */
@@ -827,8 +927,8 @@ add_filter( 'downloads_shortcode', 'lattice_downloads_shortcode', 10, 11 );
  * Register widgetized area and update sidebar with default widgets.
  *
  * @uses    register_sidebar()
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_sidebar_setup() {
 	/* Global Sidebar */
@@ -878,8 +978,8 @@ add_action( 'widgets_init', 'lattice_sidebar_setup' );
  * template to print information about the author.
  *
  * @global  WP_Query $wp_query WordPress Query object.
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_setup_author() {
 	global $wp_query;
@@ -898,8 +998,8 @@ add_action( 'wp', 'lattice_setup_author' );
  * Implement WordPress Theme Customizer
  *
  * @param   object WP_Customize_Manager $wp_customize Theme Customizer object.
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_customize_register( $wp_customize ) {
 	// Add postMessage support
@@ -965,8 +1065,8 @@ add_action( 'customize_register', 'lattice_customize_register' );
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_customize_preview_js() {
 	wp_enqueue_script( 'lattice-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), LATTICE_THEME_VERSION, true );
@@ -980,8 +1080,8 @@ add_action( 'customize_preview_init', 'lattice_customize_preview_js' );
 /**
  * Initialise the updater
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_theme_updater() {
 	$license = trim( get_option( 'lattice_theme_license_keys' ) );
@@ -1000,8 +1100,8 @@ add_action( 'admin_init', 'lattice_theme_updater' );
 /**
  * Add menu item to input license key
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_add_menu_page() {
 	add_theme_page( __( 'Theme License', 'lattice' ), __( 'Theme License', 'lattice' ), 'manage_options', 'lattice-license', 'lattice_license_page' );
@@ -1011,12 +1111,12 @@ add_action( 'admin_menu', 'lattice_add_menu_page' );
 /**
  * Render the license page
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_license_page() {
-	$license 	= get_option( 'lattice_license_key' );
-	$status 	= get_option( 'lattice_license_key_status' );
+	$license    = get_option( 'lattice_license_key' );
+	$status     = get_option( 'lattice_license_key_status' );
 	?>
 	<div class="wrap">
 		<h2><?php _e( 'Lattice Theme License Options', 'lattice' ); ?></h2>
@@ -1061,8 +1161,8 @@ function lattice_license_page() {
 /**
  * Register setting for theme license page
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_register_settings() {
 	// creates our settings in the options table
@@ -1075,8 +1175,8 @@ add_action('admin_init', 'lattice_register_settings');
  *
  * @param   string $new New license key
  * @return  string      New license key
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_sanitize_license( $new ) {
 	$old = get_option( 'lattice_license_key' );
@@ -1091,8 +1191,8 @@ function lattice_sanitize_license( $new ) {
 /**
  * Activate the license key based on the input
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_activate_license() {
 	if ( isset( $_POST['edd_theme_license_activate'] ) ) {
@@ -1124,8 +1224,8 @@ add_action( 'admin_init', 'lattice_activate_license' );
 /**
  * Activate the license and reduce the site count on the remote site
  *
- * @since	1.0
- * @version	1.0
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_deactivate_license() {
 	if ( isset( $_POST['edd_theme_license_deactivate'] ) ) {
