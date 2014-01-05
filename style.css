@@ -2912,6 +2912,10 @@ div.fes-form .fes-submit input[type=submit]:hover {
 }
 
 @media screen and (min-width: 681px) {
+	.main .downloads-container .inside .type-download {
+		width: 38%;
+	}
+
 	.main .downloads-container .inside .type-download,
 	.main .downloads-container .inside .type-download.download-clear {
 		float: left;
