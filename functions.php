@@ -919,6 +919,20 @@ function lattice_purchase_download_form( $purchase_form, $args ) {
 }
 add_filter( 'edd_purchase_download_form', 'lattice_purchase_download_form', 10, 2 );
 
+/**
+ * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
+ *
+ * @since   1.0
+ * @version 1.0
+ * @param   array $args Configuration arguments.
+ * @return  array $args
+ */
+function lattice_page_menu_args( $args ) {
+	$args['show_home'] = true;
+	return $args;
+}
+add_filter( 'wp_page_menu_args', 'lattice_page_menu_args' );
+
 /* ----------------------------------------------------------- *
  * 7. Widgets
  * ----------------------------------------------------------- */
@@ -1003,9 +1017,9 @@ add_action( 'wp', 'lattice_setup_author' );
  */
 function lattice_customize_register( $wp_customize ) {
 	// Add postMessage support
-	$wp_customize->get_setting( 'blogname' )->transport              = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport       = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport      = 'postMessage';
+	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
 	// Add Social Profiles section
 	$wp_customize->add_section( 'lattice', array(
@@ -1087,13 +1101,12 @@ function lattice_theme_updater() {
 	$license = trim( get_option( 'lattice_theme_license_keys' ) );
 
 	$edd_updater = new EDD_SL_Theme_Updater( array(
-				'remote_api_url' => 'https://easydigitaldownloads.com',
-				'version'        => LATTICE_THEME_VERSION,
-				'license'        => $license,
-				'item_name'      => 'Lattice',
-				'author'         => 'Sunny Ratilal'
-		)
-	);
+		'remote_api_url' => 'https://easydigitaldownloads.com',
+		'version'        => LATTICE_THEME_VERSION,
+		'license'        => $license,
+		'item_name'      => 'Lattice',
+		'author'         => 'Sunny Ratilal'
+	) );
 }
 add_action( 'admin_init', 'lattice_theme_updater' );
 
@@ -1229,7 +1242,7 @@ add_action( 'admin_init', 'lattice_activate_license' );
  */
 function lattice_deactivate_license() {
 	if ( isset( $_POST['edd_theme_license_deactivate'] ) ) {
-		if( ! check_admin_referer( 'lattice_nonce', 'lattice_nonce' ) ) {
+		if ( ! check_admin_referer( 'lattice_nonce', 'lattice_nonce' ) ) {
 			return;
 		} // end if
 
