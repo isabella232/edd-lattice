@@ -2947,6 +2947,31 @@ div.fes-form .fes-submit input[type=submit]:hover {
 		float: left;
 		margin: 0 4%;
 	}
+
+	.downloads .edd-download {
+		margin-bottom: 25px;
+	}
+
+	.downloads.col-2 .edd-download {
+		float: left;
+		width: 50%;
+	}
+
+	.downloads.col-2 .edd-download.col-end {
+		width: 48%;
+		margin-left: 2%;
+	}
+
+	.downloads.col-3 .edd-download {
+		float: left;
+		width: 31%;
+		margin-right: 2%;
+	}
+
+	.downloads .edd-download {
+		height: 1%;
+		*display: inline-block;
+	}
 }
 
 @media screen and (min-width: 780px) {

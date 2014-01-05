@@ -726,6 +726,99 @@ function lattice_modal() {
 	echo apply_filters( 'lattice_modal', $modal );
 } // end lattice_modal
 
+/**
+ * Modify the default output of the [downloads] shortcode
+ *
+ * @since	1.0
+ * @version	1.0
+ */
+function lattice_downloads_shortcode( $display, $atts, $buy_button, $columns, $column_width, $downloads, $excerpt, $full_content, $price, $thumbnails, $query ) {
+	switch( intval( $columns ) ) {
+		case 1:
+			$column_number = 'col-1';
+			break;
+		case 2:
+			$column_number = 'col-2';
+			break;
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+			$column_number = 'col-3';
+			break;
+	} // end switch
+
+	ob_start();
+	$i = 1;
+	?>
+	<div class="downloads <?php echo $column_number; ?> clearfix">
+		<?php
+		// Start the Loop.
+		while ( $downloads->have_posts() ) {
+			$downloads->the_post();
+		?>
+		<div itemscope itemtype="http://schema.org/Product" class="edd-download <?php if ( $i % $columns == 0 ) { echo 'col-end'; } ?>" id="edd_download_<?php echo get_the_ID(); ?>">
+			<div class="edd-download-inner">
+				<?php do_action( 'edd_download_before' ); ?>
+
+				<?php
+				if ( 'false' != $thumbnails ) {
+					edd_get_template_part( 'shortcode', 'content-image' );
+				} // end if
+
+				edd_get_template_part( 'shortcode', 'content-title' );
+
+				if ( $excerpt == 'yes' && $full_content != 'yes' ) {
+						edd_get_template_part( 'shortcode', 'content-excerpt' );
+				} else if ( $full_content == 'yes' ) {
+						edd_get_template_part( 'shortcode', 'content-full' );
+				} // end if
+
+				if ( $price == 'yes' ) {
+					edd_get_template_part( 'shortcode', 'content-price' );
+				} // end if
+
+				if ( $buy_button == 'yes' ) {
+					edd_get_template_part( 'shortcode', 'content-cart-button' );
+				} // end if
+				?>
+
+				<?php do_action( 'edd_download_after' ); ?>
+			</div><!-- /.edd-download-inner -->
+		</div><!-- /.edd-download -->
+		<?php if ( $i % $columns == 0 ) { ?><div style="clear:both;"></div><?php } ?>
+		<?php $i++; } // end while ?>
+
+		<?php wp_reset_postdata(); ?>
+
+		<div id="edd_download_pagination" class="navigation">
+			<?php
+			if ( is_single() ) {
+				echo paginate_links( array(
+					'base'    => get_permalink() . '%#%',
+					'format'  => '?paged=%#%',
+					'current' => max( 1, $query['paged'] ),
+					'total'   => $downloads->max_num_pages
+				) );
+			} else {
+				$big = 999999;
+				echo paginate_links( array(
+					'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+					'format'  => '?paged=%#%',
+					'current' => max( 1, $query['paged'] ),
+					'total'   => $downloads->max_num_pages
+				) );
+			}
+			?>
+		</div><!-- /.edd_download_pagination -->
+
+	</div><!-- /.downloads.<?php echo $column_number; ?> -->
+	<?php
+	$display = ob_get_clean();
+	return $display;
+}
+add_filter( 'downloads_shortcode', 'lattice_downloads_shortcode', 10, 11 );
+
 /* ----------------------------------------------------------- *
  * 7. Widgets
  * ----------------------------------------------------------- */
@@ -1003,9 +1096,9 @@ function lattice_sanitize_license( $new ) {
  */
 function lattice_activate_license() {
 	if ( isset( $_POST['edd_theme_license_activate'] ) ) {
-	 	if ( ! check_admin_referer( 'lattice_nonce', 'lattice_nonce' ) ) {
+		if ( ! check_admin_referer( 'lattice_nonce', 'lattice_nonce' ) ) {
 			return;
-	 	} // end if
+		} // end if
 
 		$license = trim( get_option( 'lattice_license_key' ) );
 
