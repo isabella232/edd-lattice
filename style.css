@@ -2148,13 +2148,15 @@ h3.widget-title {
 }
 
 .widget_search label {
-	display: inline;
+	display: inline-block;
 	width: 210px;
 }
 
 .widget_search .search-field {
 	width: 210px;
-	display: inline;
+	float: left;
+	line-height: 1.75;
+	display: block;
 	transition: border .1s ease-in-out;
 }
 
@@ -2165,7 +2167,7 @@ h3.widget-title {
 }
 
 .widget_search button {
-	margin-left: -4px;
+	position: absolute;
 }
 
 .widget_edd_cart_widget ul {
@@ -3158,4 +3160,14 @@ div.fes-form .fes-submit input[type=submit]:hover {
 
 .fa-dot-circle-o:before {
 	content: "\f192";
+}
+
+/*---------------------------------------------------
+ * 17. Browser Specific Styling
+ * ------------------------------------------------*/
+
+@-moz-document url-prefix() {
+	.widget_search .search-field {
+		padding: 7px 3px;
+	}
 }
