@@ -101,7 +101,7 @@
 		});
 
 		/** Custom radio buttons for variable priced downloads */
-		if (! $('.edd_price_options').parent('.edd-multi-check-price-options').length > 0) {
+		if ($('.edd_price_options').parent().children('.edd_purchase_submit_wrapper').children('a.edd-add-to-cart').data('price-mode') == 'single') {
 			$('.edd_price_options label').unwrap();
 
 			$('.edd_price_options label').each(function () {

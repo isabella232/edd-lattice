@@ -336,7 +336,7 @@ function lattice_purchase_link( $post_id = null ) {
 	} else if ( ! is_single() && $variable_pricing ) {
 		$button = ! empty( $edd_options[ 'add_to_cart_text' ] ) ? $edd_options[ 'add_to_cart_text' ] : __( 'Purchase', 'lattice' );
 		printf( '<a href="#edd-pricing-%s" class="button edd-add-to-cart-trigger">%s</a>', $post->ID, $button );
-		echo edd_get_purchase_link( $post->ID );
+		echo edd_get_purchase_link( array( 'download_id' => $post_id, 'price' => false ) );
 	} else if ( is_single() && $variable_pricing ) {
 		echo edd_get_purchase_link( array( 'download_id' => $post_id, 'price' => false ) );
 	} // end if
@@ -725,28 +725,6 @@ function lattice_modal() {
 	$modal = ob_get_clean();
 	echo apply_filters( 'lattice_modal', $modal );
 } // end lattice_modal
-
-/**
- * Add a wrapping <div> to the edd_price_options if multi-check variable pricing
- * is enabled
- */
-function lattice_wrap_multi_check_before( $download_id ) {
-	$single_price_option_mode = edd_single_price_option_mode( $download_id );
-
-	if ( $single_price_option_mode ) {
-		echo '<div class="edd-multi-check-price-options">';
-	} // end if
-} // end lattice_wrap_multi_check_before
-add_action( 'edd_before_price_options', 'lattice_wrap_multi_check_before' );
-
-function lattice_wrap_multi_check_after( $download_id ) {
-	$single_price_option_mode = edd_single_price_option_mode( $download_id );
-
-	if ( $single_price_option_mode ) {
-		echo '</div><!-- /.edd-multi-check-price-options -->';
-	} // end if
-} // end lattice_wrap_multi_check_after
-add_action( 'edd_after_price_options', 'lattice_wrap_multi_check_after' );
 
 /* ----------------------------------------------------------- *
  * 7. Widgets

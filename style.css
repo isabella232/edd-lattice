@@ -2816,7 +2816,7 @@ div.fes-form .fes-submit input[type=submit]:hover {
 		padding: 25px 0;
 	}
 
-	.main .downloads-container .inside
+	.main .downloads-container .inside,
 	.main .downloads-container .view-more-button-div {
 		width: 100%;
 		margin: 0;
@@ -2833,14 +2833,6 @@ div.fes-form .fes-submit input[type=submit]:hover {
 
 	.main .downloads-container .view-more-button-div .view-more-button a {
 		margin: 0 20px;
-		background: #e56363;
-		color: #fff;
-	}
-
-	.main .downloads-container .view-more-button-div .view-more-button a:hover {
-		color: #e56363;
-		background: #fff;
-		border: 1px solid #fff;
 	}
 
 	.main .container,
