@@ -2351,6 +2351,29 @@ h3.widget-title {
 	font-size: 1.4rem;
  }
 
+#footer .social-profiles {
+	margin: 10px auto 20px;
+	margin: 1rem auto 2rem;
+	text-align: center;
+}
+
+ #footer .social-profiles a {
+ 	display: inline-block;
+ 	color: #fff;
+ 	margin-right: 10px;
+ 	border: 1px solid #fff;
+ 	padding: 1px 8px;
+}
+
+#footer .social-profiles a.facebook {
+	padding: 1px 11px;
+}
+
+#footer .social-profiles a:hover {
+ 	background: #fff;
+ 	color: #333;
+}
+
 /**
  * 11 Easy Digital Downloads Styling
  * -----------------------------------------------------------------------------
@@ -3213,6 +3236,22 @@ div.fes-form .fes-submit input[type=submit]:hover {
 
 .fa-dot-circle-o:before {
 	content: "\f192";
+}
+
+.fa-twitter:before {
+	content: "\f099";
+}
+
+.fa-facebook:before {
+	content: "\f09a";
+}
+
+.fa-instagram:before {
+	content: "\f16d";
+}
+
+.fa-google-plus:before {
+	content: "\f0d5";
 }
 
 /*---------------------------------------------------

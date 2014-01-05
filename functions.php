@@ -565,7 +565,34 @@ function lattice_term_description() {
  * Social Icons
  */
 function lattice_social_icons() {
+	$twitter = get_theme_mod( 'lattice_twitter' );
+	$facebook = get_theme_mod( 'lattice_facebook' );
+	$instagram = get_theme_mod( 'lattice_instagram' );
+	$gplus = get_theme_mod( 'lattice_gplus' );
 
+	if ( ! ( empty( $twitter ) || empty( $facebook ) || empty( $instagram ) || empty( $gplus ) ) ) {
+		echo '<div class="social-profiles">';
+	}
+
+	if ( ! empty( $twitter ) ) {
+		printf( '<a class="twitter" href="https://twitter.com/%1$s"><i class="fa fa-twitter"></i></a>', strip_tags( html_entity_decode( $twitter ) ) );
+	}
+
+	if ( ! empty( $facebook ) ) {
+		printf( '<a class="facebook" href="%1$s"><i class="fa fa-facebook"></i></a>', esc_url( $facebook ) );
+	}
+
+	if ( ! empty( $instagram ) ) {
+		printf( '<a class="instagram" href="%1$s"><i class="fa fa-instagram"></i></a>', strip_tags( html_entity_decode( $instagram ) ) );
+	}
+
+	if ( ! empty( $gplus ) ) {
+		printf( '<a class="google-plus" href="%1$s"><i class="fa fa-google-plus"></i></a>', esc_url( $facebook ) );
+	}
+
+	if ( ! ( empty( $twitter ) || empty( $facebook ) || empty( $instagram ) || empty( $gplus ) ) ) {
+		echo '</div><!-- /.social-profiles -->';
+	}
 } // end lattice_social_icons
 
 /* ----------------------------------------------------------- *
