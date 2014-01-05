@@ -22,7 +22,7 @@
 
 		<div class="edd_download_buy_button">
 			<?php echo edd_get_purchase_link( array( 'download_id' => get_the_ID(), 'price' => false ) ); ?>
-		</div>
+		</div><!-- /.edd_download_buy_button -->
 
 		<?php do_action( 'edd_download_after' ); ?>
 	</div><!-- /.edd_download_inner -->

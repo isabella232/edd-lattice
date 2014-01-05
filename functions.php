@@ -1283,7 +1283,7 @@ function lattice_activate_license() {
 		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
 
 		update_option( 'lattice_license_key_status', $license_data->license );
-	}
+	} // end if
 }
 add_action( 'admin_init', 'lattice_activate_license' );
 
@@ -1317,7 +1317,7 @@ function lattice_deactivate_license() {
 
 		if ( $license_data->license == 'deactivated' ) {
 			delete_option( 'lattice_license_key_status' );
-		}
-	}
+		} // end if
+	} // end if
 }
 add_action( 'admin_init', 'lattice_deactivate_license' );

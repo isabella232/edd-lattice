@@ -15,6 +15,29 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
+/* ------------------------------------------------------------------------------- *
+ *
+ * /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ CONTENTS /\/\/\/\/\/\/\/\/\/\/\/\/\/\//\/\/\/\
+ *
+ * 1.  Reset
+ * 2.  Global Styles
+ * 3.  Page Layout & Structure
+ * 4.  Header
+ * 5.  Navigation
+ * 6.  Front Page
+ * 7.  Templates
+ * 8.  Blog
+ * 9.  Sidebar & Widgets
+ * 10. Footer
+ * 11. Easy Digital Downloads Styling
+ * 12. Modals & Overlays
+ * 13. Frontend Submissions (FES) Integration
+ * 14. Media Queries
+ * 15. Print
+ * 16. Font Awesome
+ * 17. Browser Specific Styling
+ * ------------------------------------------------------------------------------- */
+
 /**
  * 1 Reset
  * -----------------------------------------------------------------------------
@@ -3164,7 +3187,7 @@ div.fes-form .fes-submit input[type=submit]:hover {
 }
 
 /*---------------------------------------------------
- * 16. FontAwesome
+ * 16. Font Awesome
  * ------------------------------------------------*/
 
 /*!

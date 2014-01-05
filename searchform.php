@@ -2,6 +2,8 @@
 /**
  * The template for display search forms in Lattice
  *
+ * @link http://codex.wordpress.org/Template_Hierarchy
+ *
  * @package Lattice
  * @since Lattice 1.0
  */

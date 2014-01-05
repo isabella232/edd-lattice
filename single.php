@@ -2,6 +2,8 @@
 /**
  * The template for displaying all single posts
  *
+ * @link http://codex.wordpress.org/Template_Hierarchy
+ *
  * @package Lattice
  * @since Lattice 1.0
  */

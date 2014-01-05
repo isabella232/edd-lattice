@@ -7,11 +7,11 @@
  * and that other 'pages' on your WordPress site will use a
  * different template.
  *
- * @package   Lattice
- * @version   1.0
- * @since     1.0
- * @author	  Sunny Ratilal
- * @copyright Copyright (c) 2013, Sunny Ratilal.
+ * @link http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package Lattice
+ * @since	1.0
+ * @version	1.0
  */
 ?>
 
@@ -31,6 +31,7 @@
 		<div class="container clearfix">
 			<section class="content">
 				<?php
+				// Start the Loop.
 				while ( have_posts() ) {
 					the_post();
 				?>

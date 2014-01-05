@@ -27,9 +27,7 @@
 				);
 
 				$downloads = new WP_Query( $args );
-				?>
 
-				<?php
 				if ( $downloads->have_posts() ) {
 					$c = 0;
 					// Start the Loop.

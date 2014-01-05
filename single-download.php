@@ -2,7 +2,10 @@
 /**
  * Single Download Page Template.
  *
+ * @link http://codex.wordpress.org/Template_Hierarchy
+ *
  * @package Lattice
+ * @since Lattice 1.0
  */
 ?>
 
@@ -45,7 +48,10 @@
 			<section class="content">
 				<?php do_action( 'lattice_download_before' ); ?>
 
-				<?php while ( have_posts() ) { the_post(); ?>
+				<?php
+				// Start the Loop.
+				while ( have_posts() ) {
+					the_post(); ?>
 
 					<?php do_action( 'lattice_download_start' ); ?>
 
@@ -68,11 +74,11 @@
 
 					<?php do_action( 'lattice_download_end' ); ?>
 
-				<?php do_action( 'lattice_comments_before' ); ?>
+					<?php do_action( 'lattice_comments_before' ); ?>
 
-				<?php comments_template(); ?>
+					<?php comments_template(); ?>
 
-				<?php do_action( 'lattice_comments_after' ); ?>
+					<?php do_action( 'lattice_comments_after' ); ?>
 
 				<?php } // end while ?>
 

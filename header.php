@@ -4,8 +4,11 @@
  *
  * Displays all of the <head> section and everything up till <section class="main">
  *
+ * @link http://codex.wordpress.org/Template_Hierarchy
+ *
  * @package Lattice
- * @since Lattice 1.0
+ * @since	1.0
+ * @version	1.0
  */
 ?><!DOCTYPE html>
 <!--[if IE 7]>

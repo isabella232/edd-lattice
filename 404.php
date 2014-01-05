@@ -16,7 +16,7 @@
 		<div class="inside">
 			<h1 class="single-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'lattice' ); ?></h1>
 		</div><!-- /.inside -->
-	</section><!-- /.single-download-title-block -->
+	</section><!-- /.single-title-block -->
 
 	<section class="main clearfix">
 		<div class="container clearfix">
@@ -27,7 +27,7 @@
 					<?php get_search_form(); ?>
 
 					<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
-				</article>
+				</article><!-- /.post -->
 			</section><!-- /.content -->
 
 			<?php get_sidebar(); ?>

@@ -70,7 +70,7 @@
 
 		<footer class="entry-footer">
 			<?php the_tags( '<i class="fa fa-tags"></i> <span class="tags">', ', ', '</span>' ); ?>
-		</footer>
+		</footer><!-- /.entry-footer -->
 
 	<?php } // end if ?>
 </article><!-- #post-<?php the_ID(); ?> -->

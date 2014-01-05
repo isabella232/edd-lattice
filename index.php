@@ -10,7 +10,8 @@
  * @link http://codex.wordpress.org/Template_Hierarchy
  *
  * @package Lattice
- * @since Lattice 1.0
+ * @since	1.0
+ * @version	1.0
  */
 ?>
 

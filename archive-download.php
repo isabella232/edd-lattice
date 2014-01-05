@@ -16,7 +16,7 @@
 		<div class="inside">
 			<h1 class="single-title"><?php echo edd_get_label_plural(); ?></h1>
 		</div><!-- /.inside -->
-	</section><!-- /.single-download-title-block -->
+	</section><!-- /.single-title-block -->
 
 	<section class="main clearfix">
 		<div class="container clearfix">
@@ -38,7 +38,7 @@
 						$c++;
 					} // end while
 					?>
-				</div><!-- /.edd_downloads_list -->
+				</div><!-- /.downloads -->
 				<?php
 					lattice_page_navigation();
 				} else {
