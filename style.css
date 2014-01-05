@@ -3133,7 +3133,11 @@ div.fes-form .fes-submit input[type=submit]:hover {
  * 15. Print
  * ------------------------------------------------*/
 @media print {
-
+	body {
+		background: none;
+		color: #222;
+		font-size: 12pt;
+	}
 }
 
 /*---------------------------------------------------
