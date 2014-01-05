@@ -66,6 +66,10 @@ body * {
 	-ms-word-wrap: break-word;
 }
 
+html, body {
+	min-height: 100%;
+}
+
 html {
 	font-size: 62.5%;
 	overflow-y: scroll;
@@ -75,6 +79,7 @@ html {
 
 body {
 	background-color: #fff;
+	position: relative;
 }
 
 article,
