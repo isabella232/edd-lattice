@@ -562,7 +562,11 @@ function lattice_term_description() {
 } // end lattice_term_description
 
 /**
- * Social Icons
+ * Display social icons in the footer based on the options added form the
+ * WordPress Customizer
+ *
+ * @since   1.0
+ * @version 1.0
  */
 function lattice_social_icons() {
 	$twitter = get_theme_mod( 'lattice_twitter' );
@@ -583,11 +587,11 @@ function lattice_social_icons() {
 	}
 
 	if ( ! empty( $instagram ) ) {
-		printf( '<a class="instagram" href="%1$s"><i class="fa fa-instagram"></i></a>', strip_tags( html_entity_decode( $instagram ) ) );
+		printf( '<a class="instagram" href="http://instagram.com/%1$s"><i class="fa fa-instagram"></i></a>', strip_tags( html_entity_decode( $instagram ) ) );
 	}
 
 	if ( ! empty( $gplus ) ) {
-		printf( '<a class="google-plus" href="%1$s"><i class="fa fa-google-plus"></i></a>', esc_url( $facebook ) );
+		printf( '<a class="google-plus" href="%1$s"><i class="fa fa-google-plus"></i></a>', esc_url( $gplus ) );
 	}
 
 	if ( ! ( empty( $twitter ) || empty( $facebook ) || empty( $instagram ) || empty( $gplus ) ) ) {
