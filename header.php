@@ -45,7 +45,7 @@
 			<div class="inside">
 				<div class="top">
 					<div class="shopping-cart">
-						<a href="#" class="shopping-cart-trigger"><i class="fa fa-shopping-cart"></i> <?php echo edd_get_cart_quantity(); ?></a>
+						<a href="#" class="shopping-cart-trigger"><i class="fa fa-shopping-cart"></i> <span class="edd-cart-quantity"><?php echo edd_get_cart_quantity(); ?></span></a>
 					</div><!-- /.shopping-cart -->
 
 					<?php get_search_form(); ?>
