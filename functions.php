@@ -824,29 +824,28 @@ function lattice_downloads_shortcode( $display, $atts, $buy_button, $columns, $c
 		<?php $i++; } // end while ?>
 
 		<?php wp_reset_postdata(); ?>
-
-		<div id="edd_download_pagination" class="navigation">
-			<?php
-			if ( is_single() ) {
-				echo paginate_links( array(
-					'base'    => get_permalink() . '%#%',
-					'format'  => '?paged=%#%',
-					'current' => max( 1, $query['paged'] ),
-					'total'   => $downloads->max_num_pages
-				) );
-			} else {
-				$big = 999999;
-				echo paginate_links( array(
-					'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-					'format'  => '?paged=%#%',
-					'current' => max( 1, $query['paged'] ),
-					'total'   => $downloads->max_num_pages
-				) );
-			} // end if
-			?>
-		</div><!-- /.edd_download_pagination -->
-
 	</div><!-- /.downloads.<?php echo $column_number; ?> -->
+
+	<div class="download-pagination navigation">
+		<?php
+		if ( is_single() ) {
+			echo paginate_links( array(
+				'base'    => get_permalink() . '%#%',
+				'format'  => '?paged=%#%',
+				'current' => max( 1, $query['paged'] ),
+				'total'   => $downloads->max_num_pages
+			) );
+		} else {
+			$big = 999999;
+			echo paginate_links( array(
+				'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+				'format'  => '?paged=%#%',
+				'current' => max( 1, $query['paged'] ),
+				'total'   => $downloads->max_num_pages
+			) );
+		} // end if
+		?>
+	</div><!-- /.download-pagination -->
 	<?php
 	$display = ob_get_clean();
 	return $display;
