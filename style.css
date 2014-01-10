@@ -1010,6 +1010,10 @@ span > object {
 	transition: all .15s linear;
 }
 
+.main .downloads-container .inside .type-download .download-image .overlay a[rel="bookmark"] {
+	margin-left: 3px;
+}
+
 .main .downloads-container .inside .type-download .download-image .overlay .edd-add-to-cart-trigger + .edd_download_purchase_form {
 	display: none;
 }
