@@ -134,7 +134,7 @@ function lattice_register_theme_scripts() {
 
 	$deps = array( 'lato-font' );
 
-	wp_register_style( 'lato-font', 'http://fonts.googleapis.com/css?family=Lato:300,400,700' );
+	wp_register_style( 'lato-font', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
 	wp_register_style( 'lattice-style', get_stylesheet_uri(), $deps, '1.0' );
 
 	$path = EDD_PLUGIN_URL . '/templates';
