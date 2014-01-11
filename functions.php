@@ -20,9 +20,9 @@
  * 5.  Features/Template Functions
  * 6.  Custom Actions/Filters
  * 7.  Widgets
- * 8.  Shortcodes
- * 9.  Misc
- * 10. Customizer
+ * 8.  Misc
+ * 9.  Customizer
+ * 10. Software Licensing Integration
  *
  * ------------------------------------------------------------------------------- */
 
