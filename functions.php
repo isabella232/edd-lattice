@@ -1154,7 +1154,7 @@ add_action( 'customize_preview_init', 'lattice_customize_preview_js' );
  * @version 1.0
  */
 function lattice_theme_updater() {
-	$license = trim( get_option( 'lattice_theme_license_keys' ) );
+	$license = trim( get_option( 'lattice_theme_license_key' ) );
 
 	$edd_updater = new EDD_SL_Theme_Updater( array(
 		'remote_api_url' => 'https://easydigitaldownloads.com',
