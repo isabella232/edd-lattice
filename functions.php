@@ -708,6 +708,10 @@ add_filter( 'wp_editor_set_quality', 'lattice_image_full_quality' );
 function lattice_body_class( $classes ) {
 	global $edd_options;
 
+	if( ! function_exists( 'edd_get_option' ) ) {
+		return;
+	}
+
 	/* Add custom <body> classes to the checkout */
 	if ( is_page( edd_get_option( 'purchase_page' ) ) ) {
 		$classes[] = 'page-template';
