@@ -949,7 +949,7 @@ function lattice_purchase_download_form( $purchase_form, $args ) {
 			<input type="hidden" name="edd_action" class="edd_action_input" value="add_to_cart">
 		<?php } ?>
 
-		<?php do_action( 'edd_purchase_link_end', $args['download_id'] ); ?>
+		<?php do_action( 'edd_purchase_link_end', $args['download_id'], $args ); ?>
 	</form><!--end #edd_purchase_<?php echo esc_attr( $args['download_id'] ); ?>-->
 	<!--/dynamic-cached-content-->
 <?php
