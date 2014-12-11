@@ -332,6 +332,10 @@ function lattice_purchase_link( $post_id = null ) {
 		$post_id = $post->ID;
 	} // end if
 
+	if( ! is_singular( 'download' ) ) {
+		remove_action( 'edd_purchase_link_top', 'edd_download_purchase_form_quantity_field', 10 );
+	}
+
 	$variable_pricing = edd_has_variable_prices( $post_id );
 
 	if ( ! $variable_pricing ) {
