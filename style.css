@@ -1020,6 +1020,13 @@ span > object {
 	display: none;
 }
 
+.edd_download_quantity_wrapper input {
+	margin-bottom: 25px;
+	width: 50px;
+}
+.edd_price_options .edd_download_quantity_wrapper input {
+	margin-bottom: 5px;
+}
 .main .downloads-container .inside .type-download .download-image .overlay form .edd_go_to_checkout {
 	margin-left: 0;
 }
