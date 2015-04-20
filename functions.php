@@ -32,7 +32,7 @@
  *
  * @since   1.0
  */
-define( 'LATTICE_THEME_VERSION', '1.1.3' );
+define( 'LATTICE_THEME_VERSION', '1.1.4' );
 
 /* ----------------------------------------------------------- *
  * 1. Theme Setup
@@ -959,7 +959,7 @@ function lattice_font_url() {
 	 * by Lato, translate this to 'off'. Do not translate into your own language.
 	 */
 	if ( 'off' !== _x( 'on', 'Lato font: on or off', 'lattice' ) ) {
-			$font_url = add_query_arg( 'family', urlencode( 'Lato:300,400,700' ), "//fonts.googleapis.com/css" );
+		$font_url = esc_url( add_query_arg( 'family', urlencode( 'Lato:300,400,700' ), "//fonts.googleapis.com/css" ) );
 	} // end if
 
 	return $font_url;
@@ -1183,7 +1183,7 @@ function lattice_activate_license() {
 			'item_name'  => urlencode( 'Lattice' )
 		);
 
-		$response = wp_remote_get( add_query_arg( $api_params, 'https://easydigitaldownloads.com' ), array( 'timeout' => 15, 'sslverify' => false ) );
+		$response = wp_remote_get( esc_url_raw( add_query_arg( $api_params, 'https://easydigitaldownloads.com' ) ), array( 'timeout' => 15, 'sslverify' => false ) );
 
 		if ( is_wp_error( $response ) ) {
 			return false;
@@ -1216,7 +1216,7 @@ function lattice_deactivate_license() {
 			'item_name'  => urlencode( 'Lattice' )
 		);
 
-		$response = wp_remote_get( add_query_arg( $api_params, 'https://easydigitaldownloads.com' ), array( 'timeout' => 15, 'sslverify' => false ) );
+		$response = wp_remote_get( esc_url_raw( add_query_arg( $api_params, 'https://easydigitaldownloads.com' ) ), array( 'timeout' => 15, 'sslverify' => false ) );
 
 		if ( is_wp_error( $response ) ) {
 			return false;
