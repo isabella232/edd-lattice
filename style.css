@@ -980,6 +980,11 @@ span > object {
 	-o-transition: opacity .15s linear;
 	-ms-transition: opacity .15s linear;
 	transition: opacity .15s linear;
+	display: inline-flex;
+}
+
+.main .downloads-container .inside .type-download .download-image .overlay-inner {
+	margin: auto;
 }
 
 .main .downloads-container .inside .type-download:hover .download-image .overlay {
@@ -987,25 +992,20 @@ span > object {
 }
 
 .main .downloads-container .inside .type-download .download-image .overlay form {
-	display: inline-block;
-	vertical-align: top;
-}
-
-.main .downloads-container .inside .type-download .download-image .overlay form {
-	margin-left: 20px;
+	display: block;
 }
 
 .main .downloads-container .inside .type-download .download-image .overlay .edd-add-to-cart,
 .main .downloads-container .inside .type-download .download-image .overlay .edd-add-to-cart-trigger,
 .main .downloads-container .inside .type-download .download-image .overlay a[rel="bookmark"],
 .main .downloads-container .inside .type-download .download-image .overlay form .edd_go_to_checkout {
-	display: inline-block;
+	display: block;
 	text-transform: uppercase;
 	padding: 6px 13px;
 	color: #fff;
 	text-align: center;
 	height: auto;
-	margin: 90px 3px;
+	margin: 3px;
 	border: 1px solid #fff;
 	-webkit-transition: all .15s linear;
 	-moz-transition: all .15s linear;
@@ -1032,10 +1032,6 @@ span > object {
 }
 .main .downloads-container .inside .type-download .download-image .overlay form .edd_go_to_checkout {
 	margin-left: 0;
-}
-
-.main .downloads-container .inside .type-download .download-image .overlay .edd-add-to-cart-trigger {
-	margin-left: 25px;
 }
 
 .main .downloads-container .inside .type-download .download-image .overlay .edd-add-to-cart:hover,

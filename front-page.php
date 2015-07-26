@@ -48,8 +48,10 @@
 								} // end if
 								?>
 								<div class="overlay">
-									<?php lattice_purchase_link(); ?>
-									<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( __( 'Permanent Link to %s', 'lattice' ), the_title_attribute( 'echo=0' ) ); ?>"><?php _e( 'More Info', 'lattice' ); ?></a>
+									<div class="overlay-inner">
+										<?php lattice_purchase_link(); ?>
+										<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( __( 'Permanent Link to %s', 'lattice' ), the_title_attribute( 'echo=0' ) ); ?>"><?php _e( 'More Info', 'lattice' ); ?></a>
+									</div><!-- /.overlay-inner -->
 								</div><!-- /.overlay -->
 							</div><!-- /.entry-image -->
 
