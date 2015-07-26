@@ -963,6 +963,8 @@ span > object {
 
 .main .downloads-container .inside .type-download .download-image {
 	position: relative;
+	width: 280px;
+	height: 210px;
 }
 
 .main .downloads-container .inside .type-download .download-image .overlay {
@@ -1010,6 +1012,7 @@ span > object {
 	-o-transition: all .15s linear;
 	-ms-transition: all .15s linear;
 	transition: all .15s linear;
+	cursor: pointer;
 }
 
 .main .downloads-container .inside .type-download .download-image .overlay a[rel="bookmark"] {
