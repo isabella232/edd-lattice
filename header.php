@@ -44,9 +44,11 @@
 		<header class="header clearfix" role="banner">
 			<div class="inside">
 				<div class="top">
+					<?php if ( lattice_edd_is_activated() ) : ?>
 					<div class="shopping-cart">
 						<a href="#" class="shopping-cart-trigger"><i class="fa fa-shopping-cart"></i> <span class="edd-cart-quantity"><?php echo edd_get_cart_quantity(); ?></span></a>
 					</div><!-- /.shopping-cart -->
+					<?php endif; ?>
 
 					<?php get_search_form(); ?>
 				</div><!-- /.top -->

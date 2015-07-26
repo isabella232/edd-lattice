@@ -20,7 +20,7 @@
 </div><!-- /#container -->
 <?php wp_footer(); ?>
 
-<?php lattice_shopping_cart(); ?>
+<?php if ( lattice_edd_is_activated() ) lattice_shopping_cart(); ?>
 
 <?php lattice_modal(); ?>
 </body>

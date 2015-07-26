@@ -190,3 +190,34 @@ function lattice_downloads_shortcode( $display, $atts, $buy_button, $columns, $c
 	return $display;
 } // end lattice_downloads_shortcode
 add_filter( 'downloads_shortcode', 'lattice_downloads_shortcode', 10, 11 );
+
+/**
+ * Add template name body classes to custom pages
+ *
+ * @global  $edd_options
+ * @param   array $classes Default body classes
+ * @return  array $classes Updated body classes
+ * @since   1.0
+ * @version 1.0
+ */
+function lattice_body_class( $classes ) {
+	global $edd_options;
+
+	if ( ! function_exists( 'edd_get_option' ) ) {
+		return;
+	}
+
+	/* Add custom <body> classes to the checkout */
+	if ( is_page( edd_get_option( 'purchase_page' ) ) ) {
+		$classes[] = 'page-template';
+		$classes[] = 'page-template-template-full-width-php';
+	} // end if
+
+	/* Add custom <body> classes to the purchase confirmation page */
+	if ( is_page( edd_get_option( 'success_page' ) ) ) {
+		$classes[] = 'edd-success-page';
+	} // end if
+
+	return $classes;
+} // end lattice_body_class
+add_filter( 'body_class', 'lattice_body_class' );
