@@ -530,7 +530,7 @@ input[type="search"] {
 
 textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
-	padding-left: 3px;
+	padding-left: 5px;
 	vertical-align: top; /* Improves readability and alignment in all browsers */
 	width: 98%;
 }
@@ -1471,6 +1471,12 @@ span > object {
 .edd-reviews-voting-buttons a:hover {
 	background: #e56363;
 	color: #fff;
+}
+
+.edd-reviews-star-rating-container,
+.edd-reviews-stars-filled,
+.edd-reviews-stars-filled {
+	color: #e56363;
 }
 
 /**
