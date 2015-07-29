@@ -1198,6 +1198,7 @@ span > object {
 	border: 1px solid #e56363;
 	text-transform: uppercase;
 	cursor: pointer;
+	color: #e56363;
 }
 
 .single-download .edd_go_to_checkout:hover,
