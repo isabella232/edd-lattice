@@ -1256,21 +1256,27 @@ span > object {
 }
 
 
-#respond {
+#respond,
+.edd-reviews-form {
 	background: #f9f9f9;
 	padding: 30px;
 	margin: 30px 0;
 }
 
-#respond h3 {
+#respond h3,
+.edd-reviews-form h3.edd-reviews-review-title {
 	margin: 0 0 20px 0;
 	padding: 0;
 }
 
-#commentform input[type="text"],
+#commentform input[type="text"]
+.edd-reviews-form input[type="text"],
 #commentform input[type="email"],
+.edd-reviews-form #commentform input[type="email"],
 #commentform input[type="url"],
-#commentform textarea {
+.edd-reviews-form #commentform input[type="url"],
+#commentform textarea,
+.edd-reviews-form textarea {
 	padding: 0 4px;
 	width: 55%;
 	background: #fff;
@@ -1285,19 +1291,25 @@ span > object {
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
-#commentform label {
+#commentform label,
+.edd-reviews-form label {
 	float: left;
 	width: 20%;
 }
 
-#commentform textarea {
+#commentform textarea,
+.edd-reviews-form textarea {
 	width: 100%;
 }
 
 #commentform input[type="text"]:focus,
 #commentform input[type="email"]:focus,
 #commentform input[type="url"]:focus,
-#commentform textarea:focus {
+#commentform textarea:focus,
+.edd-reviews-form input[type="text"]:focus,
+.edd-reviews-form input[type="email"]:focus,
+.edd-reviews-form input[type="url"]:focus,
+.edd-reviews-form textarea:focus {
 	border: 1px solid #e56363;
 	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
