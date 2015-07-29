@@ -472,24 +472,7 @@ function lattice_comments_title() {
 
 	$comments_number = get_comments_number( $post->ID );
 
-	if ( 'download' == get_post_type( $post->ID ) && class_exists( 'EDD_Reviews' ) ) {
-		if ( 0 < $comments_number ) {
-			printf(
-				_nx(
-					'One Review',
-					'%1$s Reviews',
-					get_comments_number(),
-					'comments title',
-					'lattice'
-				),
-				number_format_i18n( get_comments_number() )
-			);
-		} elseif ( 0 == $comments_number ) {
-			_e( 'Reviews', 'lattice' );
-		} // end if
-	} else {
-		_e( 'Comments', 'lattice' );
-	} // end if
+	_e( 'Comments', 'lattice' );
 } // end lattice_comments_title
 
 /**

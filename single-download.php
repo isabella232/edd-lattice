@@ -75,7 +75,7 @@
 					<?php do_action( 'lattice_download_end' ); ?>
 
 					<?php
-					if ( comments_open() || '0' != get_comments_number() )  {
+					if ( comments_open() )  {
 						do_action( 'lattice_comments_before' );
 						comments_template();
 						do_action( 'lattice_comments_after' );
