@@ -379,7 +379,7 @@ function lattice_post_navigation() {
 	} // end if
 	?>
 
-	<nav class="post-navigation" role="navigation">
+	<nav class="paging-navigation clearfix post-navigation" role="navigation">
 		<div class="nav-links">
 			<?php
 			if ( is_attachment() ) {
@@ -407,27 +407,26 @@ function lattice_page_navigation() {
 
 	if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) {
 	?>
-		<div class="clearfix">&nbsp;</div>
-		<div id="page-nav" class="clearfix">
-			<ul class="paged">
+		<nav class="paging-navigation clearfix page-navigation" role="navigation">
+			<div class="nav-links">
 				<?php if ( get_next_posts_link() ) { ?>
 
-					<li class="previous">
+					<div class="next">
 						<?php next_posts_link( __( '<span class="nav-previous meta-nav"><i class="fa fa-chevron-left"></i> Older</span>', 'edd' ) ); ?>
-					</li><!-- /.previous -->
+					</div><!-- /.previous -->
 
 				<?php
 				} // end if
 
 				if ( get_previous_posts_link() ) { ?>
 
-					<li class="next">
+					<div class="previous">
 						<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer <i class="fa fa-chevron-right"></i></span>', 'edd' ) ); ?>
-					</li><!-- /.next -->
+					</div><!-- /.next -->
 
 				<?php } // end if ?>
-			</ul><!-- /.paged -->
-		</div><!-- /#page-nav -->
+			</div><!-- /.nav-links -->
+		</nav><!-- /#page-nav -->
 	<?php } // end if
 } // end lattice_page_navigation
 

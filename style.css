@@ -2203,6 +2203,38 @@ span > object {
 	letter-spacing: -0.05em;
 }
 
+.paging-navigation {
+	background: #fff;
+	width: 100%;
+	border-radius: 2px;
+	border-top: 1px solid #eee;
+	margin-bottom: 25px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.paging-navigation .next a,
+.paging-navigation .previous a {
+	padding: 20px;
+	width: auto;
+	display: block;
+	white-space: nowrap;
+}
+
+.paging-navigation .previous a {
+	text-align: right;
+}
+
+.paging-navigation .next,
+.paging-navigation .previous {
+	float: left;
+	width: 50%;
+}
+
+.paging-navigation .previous {
+	border-left: 1px solid #eee;
+}
+
 /**
  * 9 Sidebar & Widgets
  * -----------------------------------------------------------------------------
