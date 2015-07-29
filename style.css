@@ -835,7 +835,6 @@ span > object {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	z-index: 40;
 }
 
 #primary ul li a {
@@ -888,6 +887,7 @@ span > object {
 	-webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.18);
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.18);
 	margin: 0;
+	z-index: 99999;
 }
 
 #primary ul > li:hover > a {
@@ -1235,13 +1235,15 @@ span > object {
 }
 
 .comment-list,
-.comment-list li {
+.comment-list li,
+.edd-reviews-list li {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
-.comment-list li {
+.comment-list li,
+.edd-reviews-list li {
 	width: 100%;
 	padding: 0 0 20px 0;
 	margin: 0 0 25px 0;
@@ -1249,7 +1251,8 @@ span > object {
 	position: relative;
 }
 
-.comment-list li:last-child {
+.comment-list li:last-child,
+.edd-reviews-list li:last-child {
 	margin-bottom: 0;
 	padding-bottom: 0;
 	border-bottom: none;
@@ -1355,7 +1358,8 @@ span > object {
 	right: -24px;
 }
 
-.comment-author img {
+.comment-author img,
+.edd-review-meta .edd-review-author img {
 	display: block;
 	clear: both;
 	margin: 0 auto;
@@ -1363,6 +1367,12 @@ span > object {
 	border: 1px solid #ddd;
 	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.edd-review-meta .edd-review-author img {
+	width: 52px;
+	float: left;
+	margin-right: 15px;
 }
 
 .comment-author .fn {
@@ -1417,7 +1427,8 @@ span > object {
 	box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.1);
 }
 
-.comment-text p:last-child {
+.comment-text p:last-child,
+.edd-review-content p:last-child {
 	margin-bottom: 0;
 }
 
