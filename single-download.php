@@ -74,12 +74,13 @@
 
 					<?php do_action( 'lattice_download_end' ); ?>
 
-					<?php do_action( 'lattice_comments_before' ); ?>
-
-					<?php comments_template(); ?>
-
-					<?php do_action( 'lattice_comments_after' ); ?>
-
+					<?php
+					if ( comments_open() || '0' != get_comments_number() )  {
+						do_action( 'lattice_comments_before' );
+						comments_template();
+						do_action( 'lattice_comments_after' );
+					} // end if
+					?>
 				<?php } // end while ?>
 
 				<?php do_action( 'lattice_download_after' ); ?>
