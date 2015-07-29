@@ -983,6 +983,11 @@ span > object {
 	display: inline-flex;
 }
 
+.main .downloads-container .inside .type-download .download-image .overlay-no-download-image {
+	opacity: 1;
+	background: rgba(0, 0, 0, 0.1);
+}
+
 .main .downloads-container .inside .type-download .download-image .overlay-inner {
 	margin: auto;
 }
@@ -1005,7 +1010,7 @@ span > object {
 	color: #fff;
 	text-align: center;
 	height: auto;
-	margin: 3px;
+	margin: 12px 0;
 	border: 1px solid #fff;
 	-webkit-transition: all .15s linear;
 	-moz-transition: all .15s linear;
@@ -1015,8 +1020,12 @@ span > object {
 	cursor: pointer;
 }
 
-.main .downloads-container .inside .type-download .download-image .overlay a[rel="bookmark"] {
-	margin-left: 3px;
+.main .downloads-container .inside .type-download .download-image .overlay-no-download-image .edd-add-to-cart,
+.main .downloads-container .inside .type-download .download-image .overlay-no-download-image .edd-add-to-cart-trigger,
+.main .downloads-container .inside .type-download .download-image .overlay-no-download-image a[rel="bookmark"],
+.main .downloads-container .inside .type-download .download-image .overlay-no-download-image form .edd_go_to_checkout {
+	border-color: #000;
+	color: #000;
 }
 
 .main .downloads-container .inside .type-download .download-image .overlay .edd-add-to-cart-trigger + .edd_download_purchase_form {
@@ -1040,6 +1049,15 @@ span > object {
 .main .downloads-container .inside .type-download .download-image .overlay form .edd_go_to_checkout:hover {
 	background: #fff;
 	color: #000;
+}
+
+.main .downloads-container .inside .type-download .download-image .overlay-no-download-image .edd-add-to-cart:hover,
+.main .downloads-container .inside .type-download .download-image .overlay-no-download-image .edd-add-to-cart-trigger:hover,
+.main .downloads-container .inside .type-download .download-image .overlay-no-download-image a[rel="bookmark"]:hover,
+.main .downloads-container .inside .type-download .download-image .overlay-no-download-image form .edd_go_to_checkout:hover {
+	background: #000;
+	border-color: #000;
+	color: #fff;
 }
 
 .main .downloads-container .inside .type-download .download-image .overlay form .edd-add-to-cart span { display: block; }

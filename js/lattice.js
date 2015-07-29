@@ -77,6 +77,14 @@
             e.preventDefault();
         });
 
+        $('.main .downloads-container .inside .type-download .download-image').on('touchstart mouseenter focus', function(e) {
+		    if (e.type == 'touchstart') {
+		        e.stopImmediatePropagation();
+		    }
+
+		    $('.overlay', this).fadeIn();
+		});
+
 		/** Open a modal when add to cart is clicked for variable priced downloads */
 		$('.edd-add-to-cart-trigger').on('click', function (e) {
 			var data = $(this).parents('.download-image').find('.edd_download_purchase_form');

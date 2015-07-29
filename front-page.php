@@ -47,7 +47,7 @@
 									the_post_thumbnail( 'lattice-download-grid' );
 								} // end if
 								?>
-								<div class="overlay">
+								<div class="overlay <?php if ( ! has_post_thumbnail( get_the_ID() ) ) echo 'overlay-no-download-image'; ?>">
 									<div class="overlay-inner">
 										<?php lattice_purchase_link(); ?>
 										<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( __( 'Permanent Link to %s', 'lattice' ), the_title_attribute( 'echo=0' ) ); ?>"><?php _e( 'More Info', 'lattice' ); ?></a>
