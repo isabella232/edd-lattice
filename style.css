@@ -36,6 +36,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
  * 15. Print
  * 16. Font Awesome
  * 17. Browser Specific Styling
+ * 18. FES Styling
  * ------------------------------------------------------------------------------- */
 
 /**
@@ -2888,6 +2889,8 @@ div.fes-form .fes-submit input[type=submit]:hover {
 	display: block;
 	clear: both;
 	height: 1%;
+	background: #f9f9f9;
+	padding: 30px;
 }
 
 .fes-vendor-menu:after {
@@ -2897,6 +2900,52 @@ div.fes-form .fes-submit input[type=submit]:hover {
 	visibility: hidden;
 	font-size: 0;
 	height: 0;
+}
+
+.fes-vendor-menu > ul {
+	background: #fff;
+	border-radius: 2px;
+	border: 1px solid #ddd;
+	border-right: 0;
+	border-bottom: 0;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+	outline: none;
+}
+
+.fes-vendor-menu > ul > li {
+	float: left;
+	width:  50%;
+	text-align: center;
+}
+
+.fes-vendor-menu > ul > li > a {
+	letter-spacing: 0;
+	padding: 5px 0;
+	border-bottom: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+
+.fes-vendor-menu i {
+	display: inline-block;
+	position: relative;
+	top: 2px;
+}
+
+#fes-vendor-announcements {
+	padding: 10px;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+	border: 1px solid #ddd;
+	margin-bottom: 20px;
+	border-left: 4px solid #e56363;
+}
+
+#fes-vendor-store-link {
+	text-align: center;
+	margin: 20px 0;
+	padding: 10px 0;
+	border-top: double #ddd;
+	border-bottom: double #ddd;
 }
 
 /**
@@ -3412,3 +3461,7 @@ div.fes-form .fes-submit input[type=submit]:hover {
 		padding: 7px 3px;
 	}
 }
+
+/*---------------------------------------------------
+ * 18. FES Styling
+ * ------------------------------------------------*/
