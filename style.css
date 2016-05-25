@@ -1789,6 +1789,10 @@ span > object {
 	margin: 0 0 21px 0;
 }
 
+#edd_checkout_form_wrap legend {
+	display: inline-block;
+}
+
 #edd_checkout_form_wrap #edd_purchase_submit,
 #edd_checkout_form_wrap #edd_discount_code,
 #edd_checkout_form_wrap #edd_register_account_fields {

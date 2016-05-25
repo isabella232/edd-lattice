@@ -3,7 +3,7 @@
 /**
  * Lattice integration with Easy Digital Downloads
  *
- * This file adds all the functions which integrate Lattice with 
+ * This file adds all the functions which integrate Lattice with
  * Easy Digital Downloads.
  *
  * @package Lattice
