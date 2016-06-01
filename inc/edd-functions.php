@@ -3,7 +3,7 @@
 /**
  * Lattice integration with Easy Digital Downloads
  *
- * This file adds all the functions which integrate Lattice with 
+ * This file adds all the functions which integrate Lattice with
  * Easy Digital Downloads.
  *
  * @package Lattice
@@ -93,7 +93,7 @@ function lattice_template_override() {
 	global $edd_options, $post;
 
 	if ( is_page( $edd_options['purchase_page'] ) ) {
-		load_template( dirname( __FILE__ ) . '/template-full-width.php' );
+		load_template( dirname( __FILE__ ) . '/../template-full-width.php' );
 		die();
 	} // end if
 } // end lattice_template_override
