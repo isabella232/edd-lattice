@@ -32,7 +32,7 @@
  *
  * @since   1.0
  */
-define( 'LATTICE_THEME_VERSION', '1.1.4' );
+define( 'LATTICE_THEME_VERSION', '1.1.5' );
 
 /* ----------------------------------------------------------- *
  * 1. Theme Setup
